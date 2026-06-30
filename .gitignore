@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.swp
+
+# Generated delivery mirror. Canonical files live under code/ and reports/.
+beam_hopping_experiment_artifacts/delivery/
+
+# Local experimental worktrees.
+beam_hopping_marl_drl_worktree/
