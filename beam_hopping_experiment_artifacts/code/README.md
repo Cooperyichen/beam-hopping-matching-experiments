@@ -44,6 +44,19 @@ python3 phase3_benchmarks.py \
   --output results/phase_3_single_slot_comparison.csv
 ```
 
+Run the paper-aligned Deep Reinforcement Learning and Cooperative Multi-Agent Deep Reinforcement Learning reproduction prototype:
+
+```bash
+python3 drl_marl_reproduction.py \
+  --episodes 30 \
+  --horizon 60 \
+  --eval-horizon 80 \
+  --repetitions 5 \
+  --output results/phase_3_drl_marl_reproduction.csv
+```
+
+The reproduction prototype freezes bandwidth allocation and focuses on the illumination-pattern decision layer, so it remains comparable with the fixed $B_0$, $P_0$, $g_t^{b,i}$, and $\sigma_i^2$ setting used by the matching experiments.
+
 ## Phase 4
 
 Run the cross-time online matching prototype:
