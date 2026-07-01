@@ -1,6 +1,6 @@
 # Beam Hopping Matching 数值实验项目状态
 
-更新时间：2026-06-30
+更新时间：2026 年 6 月 30 日
 
 ## 总体状态
 
@@ -13,7 +13,7 @@
 | Phase 0 | 项目结构与符号规范 | 已启动 | 本状态文件，统一符号约定 |
 | Phase 1 | 单时隙 Total Unimodularity matching 实验 | 本地代码已实现，正式本地实验已完成 | `single_slot_matching.py`，`phase_1_single_slot_matching_report.md` |
 | Phase 2 | Beam hopping 文献筛选 | 已完成最终筛选 | `phase_2_literature_screening_report.md` |
-| Phase 3 | 单时隙复杂度对比 | 已完成文献校准场景汇总，完整 DRL/MADRL 训练未复现 | `phase_3_single_slot_comparison_report.md` |
+| Phase 3 | 单时隙复杂度对比 | 已完成文献校准场景汇总，第一版 DRL/CMADRL 训练复现已实现 | `phase_3_single_slot_comparison_report.md` |
 | Phase 4 | 跨时隙 online matching 与 learning augmented 方法 | 已完成第一版 online matching prototype | `phase_4_cross_time_online_matching_report.md` |
 
 ## 当前关键判断
@@ -39,19 +39,20 @@ $$
 - Phase 3 CSV：`phase_3_single_slot_comparison.csv`。
 - Phase 3 summary：`phase_3_summary.csv`。
 - Phase 3 literature calibrated summary：`phase_3_literature_calibrated_summary.csv`。
+- Phase 3 DRL/CMADRL reproduction：`phase_3_drl_marl_reproduction.csv`。
 - Phase 4 CSV：`phase_4_cross_time_online_matching.csv`。
 - Phase 4 summary：`phase_4_cross_time_online_matching_summary.csv`。
 - 图表：`phase_1_runtime_boxplot.png`，`phase_1_integrality_violation.png`，`phase_3_objective_ratio.png`。
 
 ## 状态审计说明
 
-Phase 2 已完成最终筛选。Phase 3 已根据 Phase 2 结果生成 DRL/MADRL 风格 $N=19,K=4$ 和 Genetic Algorithm 风格 $N=37,K=10$ 两类文献校准场景。完整 DRL/MADRL 训练仍未复现，因此 learning based 方法只引用文献结论和可解释 baseline。
+Phase 2 已完成最终筛选。Phase 3 已根据 Phase 2 结果生成 DRL/MADRL 风格 $N=19,K=4$ 和 Genetic Algorithm 风格 $N=37,K=10$ 两类文献校准场景。当前新增第一版 DRL/CMADRL training reproduction，已经可以训练、评估并输出 CSV。该版本尚不能视为论文级性能复现。
 
 ## 下一步
 
 - 为 Phase 4 增加 exact matching oracle 或 rolling horizon solver。
 - 为 Phase 3 增加 specialized maximum weight bipartite matching algorithm。
-- 如果需要完整 learning based baseline，单独建立 DRL/MADRL training pipeline。
+- 继续扩展 DRL/CMADRL training pipeline，区分 traffic satisfaction reward 与 throughput delay fairness reward。
 
 ## 当前阻塞
 
