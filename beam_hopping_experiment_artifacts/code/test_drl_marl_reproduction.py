@@ -9,6 +9,9 @@ from drl_marl_reproduction import (
     all_cell_actions,
     evaluate_policy,
     make_sequential_state,
+    policy_greedy_throughput,
+    policy_prediction_aware_accurate,
+    policy_urgency_primal_dual,
     train_improved_cooperative_iql,
     train_sequential_dueling_dqn,
     train_cooperative_iql,
@@ -40,6 +43,32 @@ def test_environment_step_serves_unique_cells_and_returns_metrics():
     assert len(set(info["selected_cells"])) == config.K
     assert info["throughput_mbit"] >= 0.0
     assert 0.0 <= info["mean_satisfaction"] <= 1.0
+
+
+def test_online_matching_baselines_return_valid_cell_sets():
+    config = RLConfig(N=7, K=2, M=2, T_ttl=3, seed=11)
+    env = BeamHoppingRLEnv(config, seed=11)
+    env.reset()
+
+    for selected in [
+        policy_greedy_throughput(env),
+        policy_urgency_primal_dual(env),
+        policy_prediction_aware_accurate(env, horizon=5),
+    ]:
+        assert len(selected) == config.K
+        assert len(set(selected)) == config.K
+        assert all(0 <= cell < config.N for cell in selected)
+
+
+def test_evaluate_policy_supports_online_matching_baselines():
+    config = RLConfig(N=7, K=2, M=2, T_ttl=3, seed=13)
+
+    for method in ["greedy_throughput", "urgency_primal_dual", "prediction_aware_accurate"]:
+        row = evaluate_policy(config, method=method, horizon=4, repetitions=1, seed=19)
+
+        assert row["method"] == method
+        assert row["mean_throughput_mbit"] >= 0.0
+        assert 0.0 <= row["mean_satisfaction"] <= 1.0
 
 
 def test_expanded_state_includes_queue_and_cell_features():

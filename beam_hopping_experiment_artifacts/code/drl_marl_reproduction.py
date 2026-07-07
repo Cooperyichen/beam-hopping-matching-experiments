@@ -714,6 +714,38 @@ def policy_delay_fairness(env: BeamHoppingRLEnv) -> tuple[int, ...]:
     return tuple(int(i) for i in np.argsort(-env.average_delay())[: env.config.K])
 
 
+def _top_k_cells(score: np.ndarray, k: int) -> tuple[int, ...]:
+    return tuple(int(i) for i in np.argsort(-score)[:k])
+
+
+def policy_greedy_throughput(env: BeamHoppingRLEnv) -> tuple[int, ...]:
+    """Select cells with the largest instantaneous per-cell link capacity."""
+
+    capacity_mbit = np.max(env.rate_mbps, axis=0) * env.config.slot_duration_s
+    return _top_k_cells(capacity_mbit, env.config.K)
+
+
+def policy_urgency_primal_dual(env: BeamHoppingRLEnv) -> tuple[int, ...]:
+    """Throughput score multiplied by an online unmet-demand price."""
+
+    capacity_mbit = np.max(env.rate_mbps, axis=0) * env.config.slot_duration_s
+    residual = np.maximum(env.cumulative_arrival - env.cumulative_delivered, 0.0)
+    normalized_price = residual / max(float(np.mean(residual) + 1e-9), 1e-9)
+    return _top_k_cells(capacity_mbit * (1.0 + normalized_price), env.config.K)
+
+
+def policy_prediction_aware_accurate(env: BeamHoppingRLEnv, *, horizon: int) -> tuple[int, ...]:
+    """Use the true arrival-rate vector as an accurate demand forecast."""
+
+    capacity_mbit = np.max(env.rate_mbps, axis=0) * env.config.slot_duration_s
+    residual = np.maximum(env.cumulative_arrival - env.cumulative_delivered, 0.0)
+    remaining_slots = max(horizon - env.t, 1)
+    predicted_future = env.lambda_mbps * env.config.slot_duration_s * remaining_slots
+    predicted_pressure = residual + predicted_future
+    normalized_pressure = predicted_pressure / max(float(np.mean(predicted_pressure) + 1e-9), 1e-9)
+    return _top_k_cells(capacity_mbit * (1.0 + normalized_pressure), env.config.K)
+
+
 def evaluate_policy(
     config: RLConfig,
     *,
@@ -743,6 +775,12 @@ def evaluate_policy(
                 selected = policy_greedy_demand(env)
             elif method == "delay_fairness":
                 selected = policy_delay_fairness(env)
+            elif method == "greedy_throughput":
+                selected = policy_greedy_throughput(env)
+            elif method == "urgency_primal_dual":
+                selected = policy_urgency_primal_dual(env)
+            elif method == "prediction_aware_accurate":
+                selected = policy_prediction_aware_accurate(env, horizon=horizon)
             elif method == "single_agent_dqn":
                 assert q_net is not None and actions is not None
                 with torch.no_grad():
@@ -864,6 +902,27 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
         evaluate_policy(config, method="periodic", horizon=args.eval_horizon, repetitions=args.repetitions, seed=args.seed),
         evaluate_policy(config, method="greedy_demand", horizon=args.eval_horizon, repetitions=args.repetitions, seed=args.seed),
         evaluate_policy(config, method="delay_fairness", horizon=args.eval_horizon, repetitions=args.repetitions, seed=args.seed),
+        evaluate_policy(
+            config,
+            method="greedy_throughput",
+            horizon=args.eval_horizon,
+            repetitions=args.repetitions,
+            seed=args.seed,
+        ),
+        evaluate_policy(
+            config,
+            method="urgency_primal_dual",
+            horizon=args.eval_horizon,
+            repetitions=args.repetitions,
+            seed=args.seed,
+        ),
+        evaluate_policy(
+            config,
+            method="prediction_aware_accurate",
+            horizon=args.eval_horizon,
+            repetitions=args.repetitions,
+            seed=args.seed,
+        ),
         evaluate_policy(
             config,
             method="single_agent_dqn",
