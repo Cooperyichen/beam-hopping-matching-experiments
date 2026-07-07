@@ -25,7 +25,7 @@ import itertools
 import random
 import time
 from collections import deque
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Iterable
 
@@ -60,6 +60,12 @@ class RLConfig:
     learning_rate: float = 1e-3
     epsilon_decay: float = 0.94
     epsilon_min: float = 0.05
+    use_expanded_state: bool = False
+    reward_unmet_reduction_weight: float = 0.0
+    reward_unmet_backlog_weight: float = 0.0
+    prioritized_replay_alpha: float = 0.6
+    prioritized_replay_epsilon: float = 1e-3
+    gradient_clip_norm: float = 10.0
 
 
 class BeamHoppingRLEnv:
@@ -81,10 +87,15 @@ class BeamHoppingRLEnv:
         self.t = 0
         self.last_delivered = np.zeros(config.N, dtype=np.float64)
         self.last_arrival = np.zeros(config.N, dtype=np.float64)
+        self.cumulative_arrival = np.zeros(config.N, dtype=np.float64)
+        self.cumulative_delivered = np.zeros(config.N, dtype=np.float64)
 
     @property
     def state_dim(self) -> int:
-        return self.config.N * self.config.T_ttl
+        base_dim = self.config.N * self.config.T_ttl
+        if not self.config.use_expanded_state:
+            return base_dim
+        return base_dim + 6 * self.config.N + 1
 
     def reset(self) -> np.ndarray:
         self.lambda_mbps = self.rng.uniform(self.config.train_lambda_min_mbps, self.lambda_max_mbps, size=self.config.N)
@@ -92,12 +103,38 @@ class BeamHoppingRLEnv:
         self.t = 0
         self.last_delivered.fill(0.0)
         self.last_arrival.fill(0.0)
+        self.cumulative_arrival.fill(0.0)
+        self.cumulative_delivered.fill(0.0)
         self._arrive()
         return self.state()
 
     def state(self) -> np.ndarray:
         scale = max(float(np.max(self.lambda_mbps) * self.config.slot_duration_s * self.config.T_ttl), 1e-9)
-        return (self.queue / scale).astype(np.float32).reshape(-1)
+        queue_state = (self.queue / scale).astype(np.float32).reshape(-1)
+        if not self.config.use_expanded_state:
+            return queue_state
+
+        queue_volume = (self.queue_volume() / scale).astype(np.float32)
+        delay = (self.average_delay() / max(self.config.T_ttl, 1)).astype(np.float32)
+        demand_rate = (self.lambda_mbps / max(self.lambda_max_mbps, 1e-9)).astype(np.float32)
+        last_delivered = (self.last_delivered / scale).astype(np.float32)
+        max_rate = np.max(self.rate_mbps, axis=0)
+        max_rate_feature = (max_rate / max(float(np.max(self.rate_mbps)), 1e-9)).astype(np.float32)
+        unmet = np.maximum(self.cumulative_arrival - self.cumulative_delivered, 0.0)
+        unmet_feature = (unmet / max(scale * max(self.t + 1, 1), 1e-9)).astype(np.float32)
+        time_feature = np.array([self.t / max(self.config.T_ttl * 20, 1)], dtype=np.float32)
+        return np.concatenate(
+            [
+                queue_state,
+                queue_volume,
+                delay,
+                demand_rate,
+                last_delivered,
+                max_rate_feature,
+                unmet_feature,
+                time_feature,
+            ]
+        )
 
     def queue_volume(self) -> np.ndarray:
         return self.queue.sum(axis=1)
@@ -117,6 +154,7 @@ class BeamHoppingRLEnv:
         arrival_mbit = self.rng.poisson(self.lambda_mbps * self.config.slot_duration_s)
         self.queue[:, 0] += arrival_mbit
         self.last_arrival = arrival_mbit.astype(np.float64)
+        self.cumulative_arrival += self.last_arrival
 
     def _age_queues(self) -> None:
         aged = np.zeros_like(self.queue)
@@ -167,7 +205,13 @@ class BeamHoppingRLEnv:
         delay = self.average_delay()
         delay_gap = float(np.max(delay) - np.min(delay))
         throughput_scale = max(float(self.config.K * np.max(self.rate_mbps) * self.config.slot_duration_s), 1e-9)
+        unmet_before = float(np.sum(np.maximum(self.cumulative_arrival - self.cumulative_delivered, 0.0)))
+        self.cumulative_delivered += delivered
+        unmet_after = float(np.sum(np.maximum(self.cumulative_arrival - self.cumulative_delivered, 0.0)))
+        unmet_scale = max(float(np.sum(self.lambda_mbps) * self.config.slot_duration_s * max(self.t + 1, 1)), 1e-9)
         reward = self.config.beta * throughput / throughput_scale - (1.0 - self.config.beta) * delay_gap / self.config.T_ttl
+        reward += self.config.reward_unmet_reduction_weight * (unmet_before - unmet_after) / unmet_scale
+        reward -= self.config.reward_unmet_backlog_weight * unmet_after / unmet_scale
 
         self.last_delivered = delivered
         self._age_queues()
@@ -199,6 +243,35 @@ class QNetwork(nn.Module):
         return self.net(x)
 
 
+class DuelingQNetwork(nn.Module):
+    """Dueling Q-network with separate state-value and advantage streams."""
+
+    def __init__(self, state_dim: int, action_dim: int, hidden_dim: int = 128):
+        super().__init__()
+        self.feature = nn.Sequential(
+            nn.Linear(state_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+        )
+        self.value_stream = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, 1),
+        )
+        self.advantage_stream = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, action_dim),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        features = self.feature(x)
+        value = self.value_stream(features)
+        advantage = self.advantage_stream(features)
+        return value + advantage - advantage.mean(dim=1, keepdim=True)
+
+
 class ReplayBuffer:
     def __init__(self, capacity: int, seed: int):
         self.items: deque = deque(maxlen=capacity)
@@ -221,27 +294,87 @@ class ReplayBuffer:
         return len(self.items)
 
 
+class PrioritizedReplayBuffer:
+    """Replay buffer that samples transitions according to temporal-difference priority."""
+
+    def __init__(self, capacity: int, seed: int, *, alpha: float = 0.6, epsilon: float = 1e-3):
+        self.capacity = capacity
+        self.alpha = alpha
+        self.epsilon = epsilon
+        self.items: list[tuple[np.ndarray, int, float, np.ndarray]] = []
+        self.priorities: list[float] = []
+        self.position = 0
+        self.rng = np.random.default_rng(seed)
+
+    def push(self, item: tuple[np.ndarray, int, float, np.ndarray]) -> None:
+        priority = max(self.priorities, default=1.0)
+        if len(self.items) < self.capacity:
+            self.items.append(item)
+            self.priorities.append(priority)
+        else:
+            self.items[self.position] = item
+            self.priorities[self.position] = priority
+            self.position = (self.position + 1) % self.capacity
+
+    def sample(
+        self, batch_size: int
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, np.ndarray]:
+        scaled = np.power(np.asarray(self.priorities, dtype=np.float64), self.alpha)
+        probabilities = scaled / np.sum(scaled)
+        indices = self.rng.choice(len(self.items), size=batch_size, replace=False, p=probabilities)
+        batch = [self.items[int(index)] for index in indices]
+        states, actions, rewards, next_states = zip(*batch)
+        weights = np.power(len(self.items) * probabilities[indices], -1.0)
+        weights = weights / max(float(np.max(weights)), 1e-9)
+        return (
+            torch.tensor(np.array(states), dtype=torch.float32),
+            torch.tensor(actions, dtype=torch.int64),
+            torch.tensor(rewards, dtype=torch.float32),
+            torch.tensor(np.array(next_states), dtype=torch.float32),
+            torch.tensor(weights, dtype=torch.float32),
+            indices,
+        )
+
+    def update_priorities(self, indices: np.ndarray, td_errors: np.ndarray) -> None:
+        for index, error in zip(indices, td_errors):
+            self.priorities[int(index)] = float(abs(float(error)) + self.epsilon)
+
+    def __len__(self) -> int:
+        return len(self.items)
+
+
 def optimize_dqn(
     q_net: QNetwork,
     target_net: QNetwork,
-    buffer: ReplayBuffer,
+    buffer: ReplayBuffer | PrioritizedReplayBuffer,
     optimizer: torch.optim.Optimizer,
     *,
     batch_size: int,
     gamma: float,
+    gradient_clip_norm: float,
 ) -> float | None:
     if len(buffer) < batch_size:
         return None
-    states, actions, rewards, next_states = buffer.sample(batch_size)
+    sample = buffer.sample(batch_size)
+    if isinstance(buffer, PrioritizedReplayBuffer):
+        states, actions, rewards, next_states, weights, indices = sample
+    else:
+        states, actions, rewards, next_states = sample
+        weights = torch.ones_like(rewards)
+        indices = None
     q_values = q_net(states).gather(1, actions.view(-1, 1)).squeeze(1)
     with torch.no_grad():
         next_actions = q_net(next_states).argmax(dim=1)
         next_q = target_net(next_states).gather(1, next_actions.view(-1, 1)).squeeze(1)
         target = rewards + gamma * next_q
-    loss = nn.functional.mse_loss(q_values, target)
+    td_error = target - q_values
+    loss = torch.mean(weights * td_error.pow(2))
     optimizer.zero_grad()
     loss.backward()
+    nn.utils.clip_grad_norm_(q_net.parameters(), max_norm=gradient_clip_norm)
     optimizer.step()
+    if isinstance(buffer, PrioritizedReplayBuffer) and indices is not None:
+        buffer.update_priorities(indices, td_error.detach().cpu().numpy())
     return float(loss.detach().item())
 
 
@@ -257,6 +390,27 @@ def select_epsilon_greedy(q_values: np.ndarray, epsilon: float, rng: random.Rand
     if rng.random() < epsilon:
         return rng.choice(valid)
     return max(valid, key=lambda idx: float(q_values[idx]))
+
+
+def make_replay_buffer(config: RLConfig, seed: int, *, prioritized: bool) -> ReplayBuffer | PrioritizedReplayBuffer:
+    if prioritized:
+        return PrioritizedReplayBuffer(
+            capacity=config.replay_capacity,
+            seed=seed,
+            alpha=config.prioritized_replay_alpha,
+            epsilon=config.prioritized_replay_epsilon,
+        )
+    return ReplayBuffer(capacity=config.replay_capacity, seed=seed)
+
+
+def make_sequential_state(base_state: np.ndarray, selected: Iterable[int], *, N: int, K: int) -> np.ndarray:
+    mask = np.zeros(N, dtype=np.float32)
+    selected_list = list(dict.fromkeys(int(i) for i in selected))
+    for i in selected_list:
+        if 0 <= i < N:
+            mask[i] = 1.0
+    progress = np.array([len(selected_list) / max(K, 1)], dtype=np.float32)
+    return np.concatenate([base_state.astype(np.float32), mask, progress])
 
 
 def train_single_agent_dqn(
@@ -295,6 +449,7 @@ def train_single_agent_dqn(
                 optimizer,
                 batch_size=config.batch_size,
                 gamma=config.gamma,
+                gradient_clip_norm=config.gradient_clip_norm,
             )
             if loss_value is not None:
                 episode_losses.append(loss_value)
@@ -307,6 +462,121 @@ def train_single_agent_dqn(
         losses.append(float(np.mean(episode_losses)) if episode_losses else float("nan"))
     target_net.load_state_dict(q_net.state_dict())
     return q_net, actions, rewards, losses
+
+
+def train_single_agent_dueling_dqn(
+    config: RLConfig,
+    *,
+    episodes: int,
+    horizon: int,
+    seed: int,
+) -> tuple[DuelingQNetwork, list[tuple[int, ...]], list[float], list[float]]:
+    torch.manual_seed(seed)
+    rng = random.Random(seed)
+    env = BeamHoppingRLEnv(config, seed=seed)
+    actions = all_cell_actions(config.N, config.K)
+    q_net = DuelingQNetwork(env.state_dim, len(actions), hidden_dim=config.hidden_dim)
+    target_net = DuelingQNetwork(env.state_dim, len(actions), hidden_dim=config.hidden_dim)
+    target_net.load_state_dict(q_net.state_dict())
+    optimizer = torch.optim.Adam(q_net.parameters(), lr=config.learning_rate)
+    buffer = make_replay_buffer(config, seed, prioritized=True)
+    rewards: list[float] = []
+    losses: list[float] = []
+    epsilon = 1.0
+    for episode in range(episodes):
+        state = env.reset()
+        total_reward = 0.0
+        episode_losses: list[float] = []
+        for step in range(horizon):
+            with torch.no_grad():
+                q = q_net(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
+            action_idx = select_epsilon_greedy(q, epsilon, rng)
+            next_state, reward, _ = env.step(actions[action_idx])
+            buffer.push((state, action_idx, reward, next_state))
+            loss_value = optimize_dqn(
+                q_net,
+                target_net,
+                buffer,
+                optimizer,
+                batch_size=config.batch_size,
+                gamma=config.gamma,
+                gradient_clip_norm=config.gradient_clip_norm,
+            )
+            if loss_value is not None:
+                episode_losses.append(loss_value)
+            state = next_state
+            total_reward += reward
+            if step % 20 == 0:
+                target_net.load_state_dict(q_net.state_dict())
+        epsilon = max(config.epsilon_min, epsilon * config.epsilon_decay)
+        rewards.append(total_reward)
+        losses.append(float(np.mean(episode_losses)) if episode_losses else float("nan"))
+    target_net.load_state_dict(q_net.state_dict())
+    return q_net, actions, rewards, losses
+
+
+def train_sequential_dueling_dqn(
+    config: RLConfig,
+    *,
+    episodes: int,
+    horizon: int,
+    seed: int,
+) -> tuple[DuelingQNetwork, list[float], list[float]]:
+    torch.manual_seed(seed)
+    rng = random.Random(seed)
+    env = BeamHoppingRLEnv(config, seed=seed)
+    state_dim = env.state_dim + config.N + 1
+    q_net = DuelingQNetwork(state_dim, config.N, hidden_dim=config.hidden_dim)
+    target_net = DuelingQNetwork(state_dim, config.N, hidden_dim=config.hidden_dim)
+    target_net.load_state_dict(q_net.state_dict())
+    optimizer = torch.optim.Adam(q_net.parameters(), lr=config.learning_rate)
+    buffer = make_replay_buffer(config, seed, prioritized=True)
+    rewards: list[float] = []
+    losses: list[float] = []
+    epsilon = 1.0
+    for episode in range(episodes):
+        base_state = env.reset()
+        total_reward = 0.0
+        episode_losses: list[float] = []
+        for step in range(horizon):
+            selected: list[int] = []
+            sub_states: list[np.ndarray] = []
+            action_per_substep: list[int] = []
+            for _ in range(config.K):
+                seq_state = make_sequential_state(base_state, selected, N=config.N, K=config.K)
+                with torch.no_grad():
+                    q = q_net(torch.tensor(seq_state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
+                action = select_epsilon_greedy(q, epsilon, rng, mask=set(selected))
+                sub_states.append(seq_state)
+                action_per_substep.append(action)
+                selected.append(action)
+            next_base_state, reward, _ = env.step(selected)
+            for j, (seq_state, action) in enumerate(zip(sub_states, action_per_substep)):
+                if j + 1 < config.K:
+                    next_seq_state = make_sequential_state(base_state, selected[: j + 1], N=config.N, K=config.K)
+                else:
+                    next_seq_state = make_sequential_state(next_base_state, [], N=config.N, K=config.K)
+                buffer.push((seq_state, action, reward / max(config.K, 1), next_seq_state))
+                loss_value = optimize_dqn(
+                    q_net,
+                    target_net,
+                    buffer,
+                    optimizer,
+                    batch_size=config.batch_size,
+                    gamma=config.gamma,
+                    gradient_clip_norm=config.gradient_clip_norm,
+                )
+                if loss_value is not None:
+                    episode_losses.append(loss_value)
+            base_state = next_base_state
+            total_reward += reward
+            if step % 20 == 0:
+                target_net.load_state_dict(q_net.state_dict())
+        epsilon = max(config.epsilon_min, epsilon * config.epsilon_decay)
+        rewards.append(total_reward)
+        losses.append(float(np.mean(episode_losses)) if episode_losses else float("nan"))
+    target_net.load_state_dict(q_net.state_dict())
+    return q_net, rewards, losses
 
 
 def train_cooperative_iql(
@@ -351,6 +621,66 @@ def train_cooperative_iql(
                     optimizers[k],
                     batch_size=config.batch_size,
                     gamma=config.gamma,
+                    gradient_clip_norm=config.gradient_clip_norm,
+                )
+                if loss_value is not None:
+                    episode_losses.append(loss_value)
+            state = next_state
+            total_reward += reward
+            if step % 20 == 0:
+                for target, agent in zip(targets, agents):
+                    target.load_state_dict(agent.state_dict())
+        epsilon = max(config.epsilon_min, epsilon * config.epsilon_decay)
+        rewards.append(total_reward)
+        losses.append(float(np.mean(episode_losses)) if episode_losses else float("nan"))
+    for target, agent in zip(targets, agents):
+        target.load_state_dict(agent.state_dict())
+    return agents, rewards, losses
+
+
+def train_improved_cooperative_iql(
+    config: RLConfig,
+    *,
+    episodes: int,
+    horizon: int,
+    seed: int,
+) -> tuple[list[DuelingQNetwork], list[float], list[float]]:
+    torch.manual_seed(seed)
+    rng = random.Random(seed)
+    env = BeamHoppingRLEnv(config, seed=seed)
+    agents = [DuelingQNetwork(env.state_dim, config.N, hidden_dim=config.hidden_dim) for _ in range(config.K)]
+    targets = [DuelingQNetwork(env.state_dim, config.N, hidden_dim=config.hidden_dim) for _ in range(config.K)]
+    for target, agent in zip(targets, agents):
+        target.load_state_dict(agent.state_dict())
+    optimizers = [torch.optim.Adam(agent.parameters(), lr=config.learning_rate) for agent in agents]
+    buffers = [make_replay_buffer(config, seed + k, prioritized=True) for k in range(config.K)]
+    rewards: list[float] = []
+    losses: list[float] = []
+    epsilon = 1.0
+    for episode in range(episodes):
+        state = env.reset()
+        total_reward = 0.0
+        episode_losses: list[float] = []
+        for step in range(horizon):
+            selected: list[int] = []
+            action_per_agent: list[int] = []
+            for agent in agents:
+                with torch.no_grad():
+                    q = agent(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
+                action = select_epsilon_greedy(q, epsilon, rng, mask=set(selected))
+                selected.append(action)
+                action_per_agent.append(action)
+            next_state, reward, _ = env.step(selected)
+            for k, action in enumerate(action_per_agent):
+                buffers[k].push((state, action, reward, next_state))
+                loss_value = optimize_dqn(
+                    agents[k],
+                    targets[k],
+                    buffers[k],
+                    optimizers[k],
+                    batch_size=config.batch_size,
+                    gamma=config.gamma,
+                    gradient_clip_norm=config.gradient_clip_norm,
                 )
                 if loss_value is not None:
                     episode_losses.append(loss_value)
@@ -394,6 +724,7 @@ def evaluate_policy(
     q_net: QNetwork | None = None,
     actions: list[tuple[int, ...]] | None = None,
     agents: list[QNetwork] | None = None,
+    sequential_q_net: QNetwork | None = None,
 ) -> dict:
     rng = random.Random(seed)
     metrics = []
@@ -417,9 +748,31 @@ def evaluate_policy(
                 with torch.no_grad():
                     idx = int(q_net(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).argmax(dim=1).item())
                 selected = actions[idx]
+            elif method == "single_agent_dueling_dqn":
+                assert q_net is not None and actions is not None
+                with torch.no_grad():
+                    idx = int(q_net(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).argmax(dim=1).item())
+                selected = actions[idx]
+            elif method == "sequential_dueling_dqn":
+                assert sequential_q_net is not None
+                selected_list: list[int] = []
+                for _ in range(config.K):
+                    seq_state = make_sequential_state(state, selected_list, N=config.N, K=config.K)
+                    with torch.no_grad():
+                        q = sequential_q_net(torch.tensor(seq_state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
+                    selected_list.append(select_epsilon_greedy(q, 0.0, rng, mask=set(selected_list)))
+                selected = tuple(selected_list)
             elif method == "cmadrl_iql":
                 assert agents is not None
                 selected_list: list[int] = []
+                for agent in agents:
+                    with torch.no_grad():
+                        q = agent(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
+                    selected_list.append(select_epsilon_greedy(q, 0.0, rng, mask=set(selected_list)))
+                selected = tuple(selected_list)
+            elif method == "cmadrl_iql_improved":
+                assert agents is not None
+                selected_list = []
                 for agent in agents:
                     with torch.no_grad():
                         q = agent(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
@@ -471,6 +824,41 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
         horizon=args.horizon,
         seed=args.seed + 17,
     )
+    improved_config = replace(
+        config,
+        use_expanded_state=True,
+        reward_unmet_reduction_weight=args.reward_unmet_reduction_weight,
+        reward_unmet_backlog_weight=args.reward_unmet_backlog_weight,
+    )
+    single_dueling = None
+    single_dueling_actions = None
+    single_dueling_rewards: list[float] = []
+    single_dueling_losses: list[float] = []
+    sequential_dueling = None
+    sequential_rewards: list[float] = []
+    sequential_losses: list[float] = []
+    improved_agents = None
+    improved_marl_rewards: list[float] = []
+    improved_marl_losses: list[float] = []
+    if args.run_improved:
+        single_dueling, single_dueling_actions, single_dueling_rewards, single_dueling_losses = train_single_agent_dueling_dqn(
+            improved_config,
+            episodes=args.episodes,
+            horizon=args.horizon,
+            seed=args.seed + 31,
+        )
+        sequential_dueling, sequential_rewards, sequential_losses = train_sequential_dueling_dqn(
+            improved_config,
+            episodes=args.episodes,
+            horizon=args.horizon,
+            seed=args.seed + 43,
+        )
+        improved_agents, improved_marl_rewards, improved_marl_losses = train_improved_cooperative_iql(
+            improved_config,
+            episodes=args.episodes,
+            horizon=args.horizon,
+            seed=args.seed + 59,
+        )
     rows = [
         evaluate_policy(config, method="random", horizon=args.eval_horizon, repetitions=args.repetitions, seed=args.seed),
         evaluate_policy(config, method="periodic", horizon=args.eval_horizon, repetitions=args.repetitions, seed=args.seed),
@@ -494,20 +882,68 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
             agents=cmadrl_agents,
         ),
     ]
+    if args.run_improved:
+        rows.extend(
+            [
+                evaluate_policy(
+                    improved_config,
+                    method="single_agent_dueling_dqn",
+                    horizon=args.eval_horizon,
+                    repetitions=args.repetitions,
+                    seed=args.seed,
+                    q_net=single_dueling,
+                    actions=single_dueling_actions,
+                ),
+                evaluate_policy(
+                    improved_config,
+                    method="sequential_dueling_dqn",
+                    horizon=args.eval_horizon,
+                    repetitions=args.repetitions,
+                    seed=args.seed,
+                    sequential_q_net=sequential_dueling,
+                ),
+                evaluate_policy(
+                    improved_config,
+                    method="cmadrl_iql_improved",
+                    horizon=args.eval_horizon,
+                    repetitions=args.repetitions,
+                    seed=args.seed,
+                    agents=improved_agents,
+                ),
+            ]
+        )
+    trained_methods = {"single_agent_dqn", "cmadrl_iql"}
+    if args.run_improved:
+        trained_methods.update({"single_agent_dueling_dqn", "sequential_dueling_dqn", "cmadrl_iql_improved"})
     for row in rows:
-        row["training_episodes"] = args.episodes if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else 0
-        row["training_horizon"] = args.horizon if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else 0
-        row["hidden_dim"] = config.hidden_dim if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
-        row["replay_capacity"] = config.replay_capacity if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
-        row["batch_size"] = config.batch_size if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
-        row["gamma"] = config.gamma if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
-        row["learning_rate"] = config.learning_rate if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
-        row["epsilon_decay"] = config.epsilon_decay if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
+        row["training_episodes"] = args.episodes if row["method"] in trained_methods else 0
+        row["training_horizon"] = args.horizon if row["method"] in trained_methods else 0
+        row["hidden_dim"] = config.hidden_dim if row["method"] in trained_methods else ""
+        row["replay_capacity"] = config.replay_capacity if row["method"] in trained_methods else ""
+        row["batch_size"] = config.batch_size if row["method"] in trained_methods else ""
+        row["gamma"] = config.gamma if row["method"] in trained_methods else ""
+        row["learning_rate"] = config.learning_rate if row["method"] in trained_methods else ""
+        row["epsilon_decay"] = config.epsilon_decay if row["method"] in trained_methods else ""
+        row["use_expanded_state"] = row["method"] in {
+            "single_agent_dueling_dqn",
+            "sequential_dueling_dqn",
+            "cmadrl_iql_improved",
+        }
+        row["reward_unmet_reduction_weight"] = (
+            args.reward_unmet_reduction_weight if row["use_expanded_state"] else ""
+        )
+        row["reward_unmet_backlog_weight"] = args.reward_unmet_backlog_weight if row["use_expanded_state"] else ""
         row["final_training_reward"] = (
             float(single_rewards[-1])
             if row["method"] == "single_agent_dqn"
             else float(cmadrl_rewards[-1])
             if row["method"] == "cmadrl_iql"
+            else float(single_dueling_rewards[-1])
+            if row["method"] == "single_agent_dueling_dqn"
+            else float(sequential_rewards[-1])
+            if row["method"] == "sequential_dueling_dqn"
+            else float(improved_marl_rewards[-1])
+            if row["method"] == "cmadrl_iql_improved"
             else ""
         )
         row["final_training_loss"] = (
@@ -515,6 +951,12 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
             if row["method"] == "single_agent_dqn"
             else float(cmadrl_losses[-1])
             if row["method"] == "cmadrl_iql"
+            else float(single_dueling_losses[-1])
+            if row["method"] == "single_agent_dueling_dqn"
+            else float(sequential_losses[-1])
+            if row["method"] == "sequential_dueling_dqn"
+            else float(improved_marl_losses[-1])
+            if row["method"] == "cmadrl_iql_improved"
             else ""
         )
     if args.training_log_output:
@@ -524,6 +966,13 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
             single_losses=single_losses,
             cmadrl_rewards=cmadrl_rewards,
             cmadrl_losses=cmadrl_losses,
+            extra_runs=[
+                ("single_agent_dueling_dqn", single_dueling_rewards, single_dueling_losses),
+                ("sequential_dueling_dqn", sequential_rewards, sequential_losses),
+                ("cmadrl_iql_improved", improved_marl_rewards, improved_marl_losses),
+            ]
+            if args.run_improved
+            else None,
         )
     return rows
 
@@ -535,13 +984,17 @@ def write_training_log(
     single_losses: list[float],
     cmadrl_rewards: list[float],
     cmadrl_losses: list[float],
+    extra_runs: list[tuple[str, list[float], list[float]]] | None = None,
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     rows = []
-    for method, rewards, losses in [
+    series = [
         ("single_agent_dqn", single_rewards, single_losses),
         ("cmadrl_iql", cmadrl_rewards, cmadrl_losses),
-    ]:
+    ]
+    if extra_runs:
+        series.extend(extra_runs)
+    for method, rewards, losses in series:
         for episode, (reward, loss) in enumerate(zip(rewards, losses), start=1):
             rows.append(
                 {
@@ -580,6 +1033,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--learning-rate", type=float, default=1e-3)
     parser.add_argument("--epsilon-decay", type=float, default=0.94)
     parser.add_argument("--epsilon-min", type=float, default=0.05)
+    parser.add_argument("--run-improved", action="store_true")
+    parser.add_argument("--reward-unmet-reduction-weight", type=float, default=0.2)
+    parser.add_argument("--reward-unmet-backlog-weight", type=float, default=0.05)
     parser.add_argument("--output", type=Path, default=Path("results/phase_3_drl_marl_reproduction.csv"))
     parser.add_argument("--training-log-output", type=Path, default=None)
     return parser.parse_args()
