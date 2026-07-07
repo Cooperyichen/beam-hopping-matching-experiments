@@ -82,7 +82,7 @@ def generate_instance(
     seed: int,
     T_slot: float = 0.002,
     B_tot: float = 500e6,
-    P_tot: float = 10 ** (33 / 10) / 1000.0,
+    P_tot: float = 10 ** (33 / 10),
 ) -> Instance:
     """Generate one reproducible single-slot instance."""
     if not (1 <= K <= min(M, N)):
