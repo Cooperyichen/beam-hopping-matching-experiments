@@ -53,6 +53,13 @@ class RLConfig:
     link_rate_min_mbps: float = 180.0
     link_rate_max_mbps: float = 900.0
     seed: int = 7
+    hidden_dim: int = 128
+    replay_capacity: int = 5000
+    batch_size: int = 64
+    gamma: float = 0.95
+    learning_rate: float = 1e-3
+    epsilon_decay: float = 0.94
+    epsilon_min: float = 0.05
 
 
 class BeamHoppingRLEnv:
@@ -222,9 +229,9 @@ def optimize_dqn(
     *,
     batch_size: int,
     gamma: float,
-) -> None:
+) -> float | None:
     if len(buffer) < batch_size:
-        return
+        return None
     states, actions, rewards, next_states = buffer.sample(batch_size)
     q_values = q_net(states).gather(1, actions.view(-1, 1)).squeeze(1)
     with torch.no_grad():
@@ -235,6 +242,7 @@ def optimize_dqn(
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
+    return float(loss.detach().item())
 
 
 def all_cell_actions(N: int, K: int) -> list[tuple[int, ...]]:
@@ -257,36 +265,48 @@ def train_single_agent_dqn(
     episodes: int,
     horizon: int,
     seed: int,
-) -> tuple[QNetwork, list[tuple[int, ...]], list[float]]:
+) -> tuple[QNetwork, list[tuple[int, ...]], list[float], list[float]]:
     torch.manual_seed(seed)
     rng = random.Random(seed)
     env = BeamHoppingRLEnv(config, seed=seed)
     actions = all_cell_actions(config.N, config.K)
-    q_net = QNetwork(env.state_dim, len(actions))
-    target_net = QNetwork(env.state_dim, len(actions))
+    q_net = QNetwork(env.state_dim, len(actions), hidden_dim=config.hidden_dim)
+    target_net = QNetwork(env.state_dim, len(actions), hidden_dim=config.hidden_dim)
     target_net.load_state_dict(q_net.state_dict())
-    optimizer = torch.optim.Adam(q_net.parameters(), lr=1e-3)
-    buffer = ReplayBuffer(capacity=5000, seed=seed)
+    optimizer = torch.optim.Adam(q_net.parameters(), lr=config.learning_rate)
+    buffer = ReplayBuffer(capacity=config.replay_capacity, seed=seed)
     rewards: list[float] = []
+    losses: list[float] = []
     epsilon = 1.0
     for episode in range(episodes):
         state = env.reset()
         total_reward = 0.0
+        episode_losses: list[float] = []
         for step in range(horizon):
             with torch.no_grad():
                 q = q_net(torch.tensor(state, dtype=torch.float32).unsqueeze(0)).squeeze(0).numpy()
             action_idx = select_epsilon_greedy(q, epsilon, rng)
             next_state, reward, _ = env.step(actions[action_idx])
             buffer.push((state, action_idx, reward, next_state))
-            optimize_dqn(q_net, target_net, buffer, optimizer, batch_size=64, gamma=0.95)
+            loss_value = optimize_dqn(
+                q_net,
+                target_net,
+                buffer,
+                optimizer,
+                batch_size=config.batch_size,
+                gamma=config.gamma,
+            )
+            if loss_value is not None:
+                episode_losses.append(loss_value)
             state = next_state
             total_reward += reward
             if step % 20 == 0:
                 target_net.load_state_dict(q_net.state_dict())
-        epsilon = max(0.05, epsilon * 0.94)
+        epsilon = max(config.epsilon_min, epsilon * config.epsilon_decay)
         rewards.append(total_reward)
+        losses.append(float(np.mean(episode_losses)) if episode_losses else float("nan"))
     target_net.load_state_dict(q_net.state_dict())
-    return q_net, actions, rewards
+    return q_net, actions, rewards, losses
 
 
 def train_cooperative_iql(
@@ -295,21 +315,23 @@ def train_cooperative_iql(
     episodes: int,
     horizon: int,
     seed: int,
-) -> tuple[list[QNetwork], list[float]]:
+) -> tuple[list[QNetwork], list[float], list[float]]:
     torch.manual_seed(seed)
     rng = random.Random(seed)
     env = BeamHoppingRLEnv(config, seed=seed)
-    agents = [QNetwork(env.state_dim, config.N) for _ in range(config.K)]
-    targets = [QNetwork(env.state_dim, config.N) for _ in range(config.K)]
+    agents = [QNetwork(env.state_dim, config.N, hidden_dim=config.hidden_dim) for _ in range(config.K)]
+    targets = [QNetwork(env.state_dim, config.N, hidden_dim=config.hidden_dim) for _ in range(config.K)]
     for target, agent in zip(targets, agents):
         target.load_state_dict(agent.state_dict())
-    optimizers = [torch.optim.Adam(agent.parameters(), lr=1e-3) for agent in agents]
-    buffers = [ReplayBuffer(capacity=5000, seed=seed + k) for k in range(config.K)]
+    optimizers = [torch.optim.Adam(agent.parameters(), lr=config.learning_rate) for agent in agents]
+    buffers = [ReplayBuffer(capacity=config.replay_capacity, seed=seed + k) for k in range(config.K)]
     rewards: list[float] = []
+    losses: list[float] = []
     epsilon = 1.0
     for episode in range(episodes):
         state = env.reset()
         total_reward = 0.0
+        episode_losses: list[float] = []
         for step in range(horizon):
             selected: list[int] = []
             action_per_agent: list[int] = []
@@ -322,17 +344,27 @@ def train_cooperative_iql(
             next_state, reward, _ = env.step(selected)
             for k, action in enumerate(action_per_agent):
                 buffers[k].push((state, action, reward, next_state))
-                optimize_dqn(agents[k], targets[k], buffers[k], optimizers[k], batch_size=64, gamma=0.95)
+                loss_value = optimize_dqn(
+                    agents[k],
+                    targets[k],
+                    buffers[k],
+                    optimizers[k],
+                    batch_size=config.batch_size,
+                    gamma=config.gamma,
+                )
+                if loss_value is not None:
+                    episode_losses.append(loss_value)
             state = next_state
             total_reward += reward
             if step % 20 == 0:
                 for target, agent in zip(targets, agents):
                     target.load_state_dict(agent.state_dict())
-        epsilon = max(0.05, epsilon * 0.94)
+        epsilon = max(config.epsilon_min, epsilon * config.epsilon_decay)
         rewards.append(total_reward)
+        losses.append(float(np.mean(episode_losses)) if episode_losses else float("nan"))
     for target, agent in zip(targets, agents):
         target.load_state_dict(agent.state_dict())
-    return agents, rewards
+    return agents, rewards, losses
 
 
 def policy_random(env: BeamHoppingRLEnv, rng: random.Random) -> tuple[int, ...]:
@@ -416,14 +448,24 @@ def evaluate_policy(
 
 
 def run_experiment(args: argparse.Namespace) -> list[dict]:
-    config = RLConfig(seed=args.seed, beta=args.beta)
-    single_agent, single_actions, single_rewards = train_single_agent_dqn(
+    config = RLConfig(
+        seed=args.seed,
+        beta=args.beta,
+        hidden_dim=args.hidden_dim,
+        replay_capacity=args.replay_capacity,
+        batch_size=args.batch_size,
+        gamma=args.gamma,
+        learning_rate=args.learning_rate,
+        epsilon_decay=args.epsilon_decay,
+        epsilon_min=args.epsilon_min,
+    )
+    single_agent, single_actions, single_rewards, single_losses = train_single_agent_dqn(
         config,
         episodes=args.episodes,
         horizon=args.horizon,
         seed=args.seed,
     )
-    cmadrl_agents, cmadrl_rewards = train_cooperative_iql(
+    cmadrl_agents, cmadrl_rewards, cmadrl_losses = train_cooperative_iql(
         config,
         episodes=args.episodes,
         horizon=args.horizon,
@@ -455,6 +497,12 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
     for row in rows:
         row["training_episodes"] = args.episodes if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else 0
         row["training_horizon"] = args.horizon if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else 0
+        row["hidden_dim"] = config.hidden_dim if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
+        row["replay_capacity"] = config.replay_capacity if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
+        row["batch_size"] = config.batch_size if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
+        row["gamma"] = config.gamma if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
+        row["learning_rate"] = config.learning_rate if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
+        row["epsilon_decay"] = config.epsilon_decay if row["method"] in {"single_agent_dqn", "cmadrl_iql"} else ""
         row["final_training_reward"] = (
             float(single_rewards[-1])
             if row["method"] == "single_agent_dqn"
@@ -462,7 +510,51 @@ def run_experiment(args: argparse.Namespace) -> list[dict]:
             if row["method"] == "cmadrl_iql"
             else ""
         )
+        row["final_training_loss"] = (
+            float(single_losses[-1])
+            if row["method"] == "single_agent_dqn"
+            else float(cmadrl_losses[-1])
+            if row["method"] == "cmadrl_iql"
+            else ""
+        )
+    if args.training_log_output:
+        write_training_log(
+            args.training_log_output,
+            single_rewards=single_rewards,
+            single_losses=single_losses,
+            cmadrl_rewards=cmadrl_rewards,
+            cmadrl_losses=cmadrl_losses,
+        )
     return rows
+
+
+def write_training_log(
+    path: Path,
+    *,
+    single_rewards: list[float],
+    single_losses: list[float],
+    cmadrl_rewards: list[float],
+    cmadrl_losses: list[float],
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for method, rewards, losses in [
+        ("single_agent_dqn", single_rewards, single_losses),
+        ("cmadrl_iql", cmadrl_rewards, cmadrl_losses),
+    ]:
+        for episode, (reward, loss) in enumerate(zip(rewards, losses), start=1):
+            rows.append(
+                {
+                    "method": method,
+                    "episode": episode,
+                    "total_reward": reward,
+                    "mean_loss": loss,
+                }
+            )
+    with path.open("w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["method", "episode", "total_reward", "mean_loss"])
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def write_rows(path: Path, rows: list[dict]) -> None:
@@ -481,7 +573,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--repetitions", type=int, default=5)
     parser.add_argument("--beta", type=float, default=0.5)
     parser.add_argument("--seed", type=int, default=7)
+    parser.add_argument("--hidden-dim", type=int, default=128)
+    parser.add_argument("--replay-capacity", type=int, default=5000)
+    parser.add_argument("--batch-size", type=int, default=64)
+    parser.add_argument("--gamma", type=float, default=0.95)
+    parser.add_argument("--learning-rate", type=float, default=1e-3)
+    parser.add_argument("--epsilon-decay", type=float, default=0.94)
+    parser.add_argument("--epsilon-min", type=float, default=0.05)
     parser.add_argument("--output", type=Path, default=Path("results/phase_3_drl_marl_reproduction.csv"))
+    parser.add_argument("--training-log-output", type=Path, default=None)
     return parser.parse_args()
 
 
