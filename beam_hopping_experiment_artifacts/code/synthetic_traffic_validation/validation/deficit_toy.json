@@ -1,0 +1,208 @@
+{
+  "example": "archived two-cell counterexample",
+  "units": "bit",
+  "evidence": "deterministic integration example; no statistical assumption validation",
+  "cycles": [
+    {
+      "cycle": 1,
+      "deficit_before_bits": [
+        0.0,
+        0.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        3.0,
+        0.0
+      ],
+      "deficit_after_bits": [
+        0.0,
+        1.0
+      ],
+      "nominal_service_bits": [
+        3.0,
+        0.0
+      ],
+      "score_bits_squared": 0.0
+    },
+    {
+      "cycle": 2,
+      "deficit_before_bits": [
+        0.0,
+        1.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        0.0,
+        3.0
+      ],
+      "deficit_after_bits": [
+        1.0,
+        0.0
+      ],
+      "nominal_service_bits": [
+        0.0,
+        3.0
+      ],
+      "score_bits_squared": 3.0
+    },
+    {
+      "cycle": 3,
+      "deficit_before_bits": [
+        1.0,
+        0.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        3.0,
+        0.0
+      ],
+      "deficit_after_bits": [
+        0.0,
+        1.0
+      ],
+      "nominal_service_bits": [
+        3.0,
+        0.0
+      ],
+      "score_bits_squared": 3.0
+    },
+    {
+      "cycle": 4,
+      "deficit_before_bits": [
+        0.0,
+        1.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        0.0,
+        3.0
+      ],
+      "deficit_after_bits": [
+        1.0,
+        0.0
+      ],
+      "nominal_service_bits": [
+        0.0,
+        3.0
+      ],
+      "score_bits_squared": 3.0
+    },
+    {
+      "cycle": 5,
+      "deficit_before_bits": [
+        1.0,
+        0.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        3.0,
+        0.0
+      ],
+      "deficit_after_bits": [
+        0.0,
+        1.0
+      ],
+      "nominal_service_bits": [
+        3.0,
+        0.0
+      ],
+      "score_bits_squared": 3.0
+    },
+    {
+      "cycle": 6,
+      "deficit_before_bits": [
+        0.0,
+        1.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        0.0,
+        3.0
+      ],
+      "deficit_after_bits": [
+        1.0,
+        0.0
+      ],
+      "nominal_service_bits": [
+        0.0,
+        3.0
+      ],
+      "score_bits_squared": 3.0
+    },
+    {
+      "cycle": 7,
+      "deficit_before_bits": [
+        1.0,
+        0.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        3.0,
+        0.0
+      ],
+      "deficit_after_bits": [
+        0.0,
+        1.0
+      ],
+      "nominal_service_bits": [
+        3.0,
+        0.0
+      ],
+      "score_bits_squared": 3.0
+    },
+    {
+      "cycle": 8,
+      "deficit_before_bits": [
+        0.0,
+        1.0
+      ],
+      "demand_bits": [
+        1.0,
+        1.0
+      ],
+      "realized_service_capacity_bits": [
+        0.0,
+        3.0
+      ],
+      "deficit_after_bits": [
+        1.0,
+        0.0
+      ],
+      "nominal_service_bits": [
+        0.0,
+        3.0
+      ],
+      "score_bits_squared": 3.0
+    }
+  ],
+  "checkpoint": {
+    "schema_version": 1,
+    "cells": 2,
+    "next_cycle": 9,
+    "deficit_bits": [
+      1.0,
+      0.0
+    ]
+  }
+}

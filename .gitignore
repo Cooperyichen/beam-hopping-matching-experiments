@@ -9,3 +9,9 @@ beam_hopping_experiment_artifacts/delivery/
 
 # Local experimental worktrees.
 beam_hopping_marl_drl_worktree/
+
+# New experiment outputs and local package build products.
+beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/runs/
+*.egg-info/
+beam_hopping_experiment_artifacts/code/build/
+beam_hopping_experiment_artifacts/code/dist/

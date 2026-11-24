@@ -1,0 +1,21 @@
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "cvxpy": "1.9.2",
+  "mosek": [
+    11,
+    2,
+    2
+  ],
+  "torch": "2.12.1+cu130",
+  "cuda": "13.0",
+  "cuda_available": true,
+  "gpu": "NVIDIA RTX 500 Ada Generation Laptop GPU",
+  "thread_environment": {
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  }
+}

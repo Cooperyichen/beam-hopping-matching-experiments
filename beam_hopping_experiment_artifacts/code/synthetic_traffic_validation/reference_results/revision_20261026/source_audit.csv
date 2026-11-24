@@ -1,0 +1,3 @@
+scenario,training_total_mean_mbit_12,full_total_mean_mbit_12,first_two_cells_share,users,source_count_unchanged,complete_graph
+baseline_a1.6,27.32574031419459,27.364428442142817,0.27351533082574314,2279,True,Every beam opportunity can serve every cell; opportunities have identical channel weights. No sparse graph is generated.
+hotspot_a1.6,27.31012443061772,27.3263718806746,0.49849984041551015,2280,True,Every beam opportunity can serve every cell; opportunities have identical channel weights. No sparse graph is generated.

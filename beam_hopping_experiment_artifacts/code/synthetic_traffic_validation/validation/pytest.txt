@@ -1,0 +1,12 @@
+................................                                         [100%]
+=============================== warnings summary ===============================
+synthetic_traffic_validation/tests/test_core.py::test_trust_endpoints_and_conic_repair
+  /home/coope/beam_hopping_experiments/.venv/lib/python3.12/site-packages/mosek/__init__.py:11539: UserWarning: Argument subi in putaijlist64: Incorrect array format causing data to be copied
+    warnings.warn("Argument subi in putaijlist64: Incorrect array format causing data to be copied");
+
+synthetic_traffic_validation/tests/test_core.py::test_trust_endpoints_and_conic_repair
+  /home/coope/beam_hopping_experiments/.venv/lib/python3.12/site-packages/mosek/__init__.py:11568: UserWarning: Argument subj in putaijlist64: Incorrect array format causing data to be copied
+    warnings.warn("Argument subj in putaijlist64: Incorrect array format causing data to be copied");
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+32 passed, 2 warnings in 1.81s

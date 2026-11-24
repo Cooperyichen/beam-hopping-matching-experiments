@@ -1,0 +1,29 @@
+{
+  "seed": 41,
+  "passed": 22,
+  "checks": [
+    "channel mean",
+    "channel standard deviation",
+    "historical matching lambda=0.0",
+    "historical matching lambda=0.5",
+    "historical matching lambda=2.0",
+    "historical matching lambda=8.0",
+    "reserve rank",
+    "fractional weights",
+    "Whittle fit d",
+    "Whittle fit phi",
+    "Whittle fit mean",
+    "Whittle fit scale",
+    "Whittle fit objective",
+    "covariance predictor",
+    "strictly past forecast",
+    "Pareto integrated traffic",
+    "revision channel mean T=12",
+    "revision channel deviation T=12",
+    "revision channel mean T=24",
+    "revision channel deviation T=24",
+    "revision channel mean T=48",
+    "revision channel deviation T=48"
+  ],
+  "scope": "finite input numerical parity with the original experiment implementation; not model equivalence to the raw collaborator scripts"
+}

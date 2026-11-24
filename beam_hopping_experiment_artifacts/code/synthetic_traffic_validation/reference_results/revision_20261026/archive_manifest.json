@@ -1,0 +1,28 @@
+{
+  "description": "Unmodified historical evidence, not a new experiment",
+  "pdf_sha256": "ea732d056fec11da94faf7bc5b66809e5b5d3c4e4dd79dbea8bfbc7b4c0953bd",
+  "sha256": {
+    "baseline_a1.6_parameters.json": "b40c86c4848addc7396e1f1dd482ab5eee5a7129981d40c82b001b73d65c0c17",
+    "block_interval_sensitivity.csv": "480c334af26dd34a0b3432dff2bae3c20a43370e297dcae39c4c65ceec9b51b0",
+    "checkpoint.json": "eb80c4b6fd1788d699d7442603ede42b0b2b4d4ae419e1818e043fc25a16cc0e",
+    "environment.json": "14d02ff68bb6369a863d4ee9eb3e20e4d6ac6553e1f3ca3e346b7a4896a8fcd8",
+    "figure_inventory.csv": "438734a190932a8272d98f07ef2c310c8e844092a26a4d7a2ce8cea11e4342b3",
+    "forecast_metrics.csv": "b0b5a77d5d846c4ae67f67028f2a57689fe2b811ec9946f244bb709e6e4889d7",
+    "formal_budget.json": "3c0edc0051cb810fa96c681f75827b8de062d807a29de2092abce9c9239b208f",
+    "formal_complete.json": "cdbb4f19fbe8de9ed19a9136975d6da204300f16a354cd95bb70b6982a8cd4d8",
+    "frozen_code.json": "2656070e892a4be39277d1e6a4438c8215ad1dbd09a8fbafc430c19eb2d974e1",
+    "hotspot_a1.6_parameters.json": "8244eecb6599c0e1f1922c8e972b1eef69dbc2ba9b4234c48263aea91c9d6630",
+    "model_selection.csv": "2305254671ba8369092b3ad248422201efc2a275ca11786f67986880cab8edaa",
+    "pilot_equal.csv": "16efe0cbdda851158174abb3faeb47c173d7bf60650ff460b939f79657e93111",
+    "postrun_tests.csv": "e13e38dd1127b796b9cd249151181fd94c4459f3a5f7c51fbf0c140d01e0da61",
+    "protocol.json": "a7a42705bf6b7de106c5081bbee2b366f98d7ddfa35b882d023c694c519dced9",
+    "resources/formal_B_C.json": "4f6e36d58a51174fb5181a8a651223de049973ba0ee4b58a289e7106ce14ea46",
+    "solver_status_summary.csv": "22bed473bf941699ff40bc3a93da9a131702edb16bc4e966096d61d8061edbe9",
+    "source_audit.csv": "59925463c8bebbc12ea08676824fb58089f9bf3ae348fcdfa25970e8504b1320",
+    "static_attempts.csv": "c192d8007f106634ba43f4fc8b35972534c59511c478730fdabea5fed71ea4cb",
+    "static_results.csv": "6d94f6ddac2aca36f676422f546514645a72bccb2fa5fea9ec5c47f2b1b67413",
+    "summary.csv": "7f382779c8de779a1afdfaa7d5ad90f28b9b2a11dad82ec5c632ba68ab36692b",
+    "tests.csv": "07b0f7a61f54679457675237d564253cd958518f54945da26c2e13faafc2faac",
+    "verification.json": "95a4781075b0fa386a8cbcefca6cc5d113f443695190e7e5ae32d8fcff6ade44"
+  }
+}

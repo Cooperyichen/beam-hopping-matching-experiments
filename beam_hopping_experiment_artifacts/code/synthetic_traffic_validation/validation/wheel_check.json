@@ -1,0 +1,11 @@
+{
+  "policy_records": 2728,
+  "optimizer_attempts": 998,
+  "pdf_page_8_rows": 6,
+  "sha256_files": 22,
+  "scope": "archive integrity and table agreement; no new experiment or theorem validation",
+  "wheel_sha256": "d84627f82b6764211fc37657901d48b33789a2fb2e3ba1cd6e5e0e055b21186f",
+  "isolated_import": true,
+  "optional_modules_not_imported": true,
+  "theory_mirrors_included": true
+}

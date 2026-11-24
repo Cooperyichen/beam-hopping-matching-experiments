@@ -1,0 +1,65 @@
+{
+  "horizons": [
+    12,
+    24,
+    48
+  ],
+  "cells": 8,
+  "max_active": 3,
+  "slot_duration_s": 0.002,
+  "total_bandwidth_hz": 500000000.0,
+  "total_power_w": 1000,
+  "bmax": 0.6,
+  "epsilon_demand": 0.025,
+  "epsilon_channel": 0.025,
+  "alpha": 1.6,
+  "matching_equal_fraction": 0.3333333333333333,
+  "solver_time_limit_s": 3.0,
+  "physical_splits": [
+    0,
+    600000,
+    700000,
+    800000,
+    1000000
+  ],
+  "load_initial": [
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75
+  ],
+  "load_extension": [
+    2.0,
+    2.25
+  ],
+  "extension_rule": "Append until both spatial scenarios have a proved-infeasible pilot window, at most 2.25.",
+  "preliminary_windows_per_load": 3,
+  "budget_rule": "95% worst-case half-width 0.18 gives ceil(1.96^2/(4*0.18^2))=30 windows; cap by 900 s projected full-solver budget; minimum 8, maximum 30.",
+  "window_sampling": "Evenly spaced nonoverlapping windows across the physical test partition; fixed before formal evaluation.",
+  "formal_draws": 512,
+  "uncertainty": "Independent Gaussian spectral-efficiency errors; standard deviation 20% of the known mean.",
+  "history_slots": [
+    128,
+    256,
+    512
+  ],
+  "history_seconds": [
+    0.256,
+    0.512,
+    1.024
+  ],
+  "inherited_policies": "Unchanged lambda, gamma and kappa from the preceding calibration; no priority-rule changes.",
+  "demand_scaling": "All partitions, forecasts, means and residual reserves scale by the same positive factor. Standardized linear fits and model choices are invariant.",
+  "information": "Forecast at first target slot using strictly earlier observations; complete-cycle cumulative service, without queues or TTL.",
+  "test_disclosure": "The physical test trajectories were already inspected in the preceding study. This is not fresh holdout confirmation.",
+  "channel_extension": "Original 12-slot profile plus independently seeded 12-slot blocks; same conditional independent-slot errors. Drift phase follows physical origin/12.",
+  "latency": "Zero-lead-time logical simulation. Timed forecast, scoring, assignment, all checks, all failed/successful repairs, and full solve; hardware configuration signalling unavailable.",
+  "checkpoint": "Stop after B and C; sequential old-plan reuse has not been authorized.",
+  "source_sha256": {
+    "forecast.py": "ed3537cdaa2201df66b0c52e3a053f434b7d3cce3f346a455f0ae5ea9edc8c6b",
+    "allocation.py": "eecb0923d618634ba1c297a68eda09ae21d09d7743c85e2231b59d639bd90495",
+    "experiments.py": "0eb0dba30bc902ad6ad5183020c4f9054f2598682176ead6f16aca8d8c9451f7",
+    "operational.py": "b731c7ece14dca65438d76d3c60098044ea7f5821b21e35cd87bb686951e3926"
+  }
+}

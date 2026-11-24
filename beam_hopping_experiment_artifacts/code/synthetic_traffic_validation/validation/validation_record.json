@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-24",
+  "backend": "Python scientific stack on ThinkPad WSL",
+  "python": "3.12.13",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "cvxpy": "1.9.2",
+  "mosek": [
+    11,
+    2,
+    2
+  ],
+  "torch": "2.12.1+cu130",
+  "pytest": "9.1.1",
+  "tests_passed": 32,
+  "warnings": "Two existing MOSEK sparse-index copy warnings; no test failure",
+  "port_parity_checks": 22,
+  "archive_policy_records": 2728,
+  "archive_optimizer_attempts": 998,
+  "scope": "Implementation tests, fixed-input parity, archive consistency, and wheel smoke check. No full experiment rerun or statistical theorem verification.",
+  "reproduce_tests": "python -m pytest -q synthetic_traffic_validation/tests synthetic_traffic_validation/revision_code/test_revision.py",
+  "seeds": {
+    "parity": 41,
+    "enumeration": 41,
+    "existing_traffic_demo": 20261124
+  },
+  "validation_files_sha256": {
+    "archive_check.json": "43f2b560c3f6fe66963d4bd8e16efb9ca971a045f534918303f5b3533250d73f",
+    "deficit_existing_traffic.json": "98824ea5718fb94592854c45505168fc326f6d65aa159b5ba6f403000c35326f",
+    "deficit_toy.json": "109d27de7f15c4e0d6bbb806b4a4ad5183a49f87a4ffc4d9ffdadba23787e323",
+    "port_parity.json": "e7fc666f75db15b1c18193348fba2a41de53d58c8884283f4acff8df810ca6f6",
+    "pytest.txt": "faab5e3d188c61d2c52a8faca9c616cccb04d00eb8b97a25ae3f99e811e1f5ad",
+    "wheel_build.txt": "d21f97ede5ab1be726d1795b81265f00e7c2ac32d02ff3f54d27820bcb4f5782",
+    "wheel_check.json": "f4aa761d110edda7f2247c2c48013f4d35ab2d0731936117a7bd79e19baa7d2d"
+  }
+}
