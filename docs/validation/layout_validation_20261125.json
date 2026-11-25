@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-25",
+  "status": "passed",
+  "tests_passed": 59,
+  "test_warnings": "Two existing MOSEK sparse-index copy warnings; no failure",
+  "base_commit": "26e57bb247b661e1c581b90c654f1869fe4ac453",
+  "python": "3.12.13",
+  "versions": {
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "cvxpy": "1.9.2",
+    "Mosek": "11.2.2",
+    "torch": "2.12.1",
+    "pytest": "9.1.1"
+  },
+  "scope": "Layout, CLI, installation, preservation and regression tests only; no new benchmark or statistical theorem validation",
+  "test_command": "PYTHONPATH=src OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python -m pytest -q",
+  "cli_help_checks": [
+    "single-slot",
+    "benchmarks",
+    "online",
+    "learning",
+    "forecast",
+    "forecast-revision",
+    "deficit",
+    "verify-evidence",
+    "plots"
+  ],
+  "isolated_install": "pip install --no-deps --no-build-isolation --target /tmp/beam_hopping_layout_install_20261125 .",
+  "isolated_install_imports": "Both packages imported from the installed target outside the checkout",
+  "legacy_core_ast_checks": [
+    "matching/single_slot.py",
+    "matching/heuristics.py",
+    "scheduling/online.py",
+    "learning/reinforcement.py"
+  ],
+  "ast_scope": "Four earlier scientific modules identical after excluding import statements; plot changes are I/O and help only",
+  "byte_preserved_assets": 101,
+  "archive_check": {
+    "policy_records": 2728,
+    "optimizer_attempts": 998,
+    "pdf_page_8_rows": 6,
+    "sha256_files": 22,
+    "scope": "archive integrity and table agreement; no new experiment or theorem validation"
+  },
+  "mosek_check": "Explicit small LP passed using MOSEK 11.2.2; no solver fallback",
+  "cjk_text_files_remaining": [],
+  "omissions": [
+    "Full benchmark rerun",
+    "Fresh forecasting calibration",
+    "Long training",
+    "GitHub Actions execution",
+    "Theorem assumption verification"
+  ]
+}
