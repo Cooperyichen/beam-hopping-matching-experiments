@@ -1,0 +1,271 @@
+--- original/allocation.py
++++ ported/allocation.py
+@@ -8,7 +8,6 @@
+ 
+ import numpy as np
+ from scipy.optimize import linear_sum_assignment
+-import cvxpy as cp
+ 
+ KAPPA=NormalDist().inv_cdf(.975)
+ _CACHE={}
+@@ -58,6 +57,7 @@
+ 
+ 
+ def _template(shape,k,chance,bmax,mode,relaxed):
++    import cvxpy as cp
+     key=(shape,k,chance,bmax,mode,relaxed)
+     if key in _CACHE: return _CACHE[key]
+     n,T=shape; mu=cp.Parameter(shape,nonneg=True); sd=cp.Parameter(shape,nonneg=True)
+@@ -89,6 +89,7 @@
+ 
+ 
+ def solve_allocation(mu,sd,target,*,k=3,chance=True,bmax=.6,mode='full',old_b=None,affected=None,relaxed=False,time_limit=5.):
++    import cvxpy as cp
+     mu=np.asarray(mu); target=np.maximum(target,0.)
+     # A deterministic channel has no SOC allowance. Eliminate the degenerate
+     # zero cone rather than ask the native solver to presolve it repeatedly.
+--- original/traffic.py
++++ ported/traffic.py
+@@ -5,7 +5,7 @@
+ import numpy as np
+ import torch
+ 
+-from resources import write_csv, write_json, Meter
++from .resources import write_csv, write_json, Meter
+ 
+ REPORT_DEMAND_MBIT = np.array([3.53263106,3.95898587,3.17113991,3.86735415,2.67452076,3.76284609,3.43954699,2.94307239])
+ 
+--- original/forecast.py
++++ ported/forecast.py
+@@ -6,7 +6,7 @@
+ import numpy as np
+ from scipy import linalg, optimize, signal
+ 
+-from resources import Meter, write_csv, write_json
++from .resources import Meter, write_csv, write_json
+ 
+ 
+ def split_bounds(n):
+--- original/experiments.py
++++ ported/experiments.py
+@@ -7,9 +7,9 @@
+ import numpy as np
+ from scipy.special import ndtr
+ 
+-from allocation import (matching_plan,trust_target,hybrid,solve_allocation,report_channel,
++from .allocation import (matching_plan,trust_target,hybrid,solve_allocation,report_channel,
+                         service_margin,KAPPA)
+-from resources import Meter,write_csv,write_json
++from .resources import Meter,write_csv,write_json
+ 
+ MATCHING_POLICIES=['throughput_matching','urgency_no_prediction','prediction_matching','reserve_matching','trust_matching',
+                    'fixed_reserve_1pct','fixed_reserve_2pct','fixed_reserve_3pct','fixed_reserve_5pct']
+--- original/resources.py
++++ ported/resources.py
+@@ -5,6 +5,7 @@
+ import platform
+ import resource
+ import subprocess
++import shutil
+ import threading
+ import time
+ from pathlib import Path
+@@ -32,7 +33,7 @@
+         self.samples = []; self.stop = threading.Event()
+ 
+     def sample(self):
+-        tool = '/usr/lib/wsl/lib/nvidia-smi'
++        tool = shutil.which('nvidia-smi') or '/usr/lib/wsl/lib/nvidia-smi'
+         while not self.stop.is_set():
+             try:
+                 raw = subprocess.check_output([tool, '--query-gpu=utilization.gpu,memory.used,power.draw', '--format=csv,noheader,nounits'], timeout=3, text=True)
+@@ -58,7 +59,7 @@
+         end = time.perf_counter(); cpu = time.process_time()-self.cpu
+         self.stop.set(); self.thread.join(timeout=4)
+         row = dict(stage=self.stage, **self.labels, wall_s=end-self.start, cpu_s=cpu,
+-                   process_lifetime_peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
++                   process_lifetime_peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/(2**20 if platform.system() == 'Darwin' else 1024),
+                    cuda_peak_allocated_mib=torch.cuda.max_memory_allocated()/2**20 if self.cuda else 0,
+                    cuda_peak_reserved_mib=torch.cuda.max_memory_reserved()/2**20 if self.cuda else 0,
+                    gpu_telemetry_samples=len(self.samples), completed=exc is None)
+--- original/provenance.py
++++ ported/provenance.py
+@@ -1,7 +1,7 @@
+ """Content fingerprints, protocol details and source inventory."""
+ import hashlib
+ from pathlib import Path
+-from resources import write_json
++from .resources import write_json
+ 
+ 
+ def record(root):
+--- original/cli.py
++++ ported/cli.py
+@@ -3,7 +3,7 @@
+ from pathlib import Path
+ import torch
+ 
+-from resources import environment
++from .resources import environment
+ 
+ 
+ def main():
+@@ -18,22 +18,22 @@
+     a=p.parse_args(); torch.set_num_threads(2)
+     a.output.mkdir(parents=True,exist_ok=True); environment(a.output)
+     if a.command in ['generate','all']:
+-        from traffic import generate
++        from .traffic import generate
+         generate(a.output,a.steps,a.smoke)
+     if a.command in ['fit-forecast','all']:
+-        from forecast import fit_forecast
++        from .forecast import fit_forecast
+         fit_forecast(a.output)
+     if a.command in ['run-matching','run-chance-reference','all']:
+-        from experiments import compare
++        from .experiments import compare
+         for command in (['run-matching','run-chance-reference'] if a.command=='all' else [a.command]):
+             compare(a.output,a.cycles,a.draws,command)
+     if a.command in ['run-operational','all']:
+-        from operational import run_operational
++        from .operational import run_operational
+         run_operational(a.output,a.operational_cycles,a.draws)
+     if a.command in ['summarize','all']:
+-        from benchmarks import run
++        from .benchmarks import run
+         run(a.output)
+-        from reporting import summarize
++        from .reporting import summarize
+         summarize(a.output)
+ 
+ 
+--- original/operational.py
++++ ported/operational.py
+@@ -9,9 +9,9 @@
+ 
+ import numpy as np
+ 
+-from allocation import report_channel,service_margin,solve_allocation,matching_plan,hybrid
+-from experiments import metrics,update_error
+-from resources import Meter,write_csv,write_json
++from .allocation import report_channel,service_margin,solve_allocation,matching_plan,hybrid
++from .experiments import metrics,update_error
++from .resources import Meter,write_csv,write_json
+ 
+ POLICIES=['every_assessment','periodic','margin_trigger','margin_and_gap','adaptive_interval','certified_matching']
+ 
+--- original/benchmarks.py
++++ ported/benchmarks.py
+@@ -8,9 +8,9 @@
+ import torch
+ from scipy import linalg
+ 
+-from traffic import simulate_cell
+-from forecast import step_weights
+-from resources import Meter,write_csv,write_json
++from .traffic import simulate_cell
++from .forecast import step_weights
++from .resources import Meter,write_csv,write_json
+ 
+ 
+ def run(root):
+--- original/reporting.py
++++ ported/reporting.py
+@@ -8,7 +8,7 @@
+ matplotlib.use('Agg')
+ import matplotlib.pyplot as plt
+ 
+-from resources import write_csv,write_json
++from .resources import write_csv,write_json
+ 
+ COLORS=['#245b8a','#d98c24','#2a927d','#87599e','#c75252','#525c68','#6a9e3e','#c176a0','#477f87',
+         '#17becf','#393b79','#637939','#8c6d31']
+--- original/tests/test_core.py
++++ ported/tests/test_core.py
+@@ -2,9 +2,9 @@
+ import numpy as np
+ import pytest
+ 
+-from traffic import bin_intervals, simulate_cell, make_config
+-from forecast import split_bounds, fractional_weights, fit_arfima, prediction_weights, predict_at
+-from allocation import exact_matching, solve_allocation, service_margin, trust_target
++from synthetic_traffic_validation.traffic import bin_intervals, simulate_cell, make_config
++from synthetic_traffic_validation.forecast import split_bounds, fractional_weights, fit_arfima, prediction_weights, predict_at
++from synthetic_traffic_validation.allocation import exact_matching, solve_allocation, service_margin, trust_target
+ 
+ 
+ def test_interval_conservation():
+--- original/revision_code/revision.py
++++ ported/revision_code/revision.py
+@@ -9,6 +9,7 @@
+ import hashlib
+ import json
+ import math
++import os
+ from pathlib import Path
+ import resource
+ import sys
+@@ -17,14 +18,13 @@
+ import numpy as np
+ 
+ PARENT = Path(__file__).resolve().parent.parent
+-sys.path.insert(0, str(PARENT))
+-from allocation import matching_plan, solve_allocation, service_margin, report_channel
+-from experiments import metrics, update_error
+-from forecast import fit_arfima, step_weights, predict_at, quantile_reserve, errors
+-from resources import Meter, environment, write_csv, write_json
+-
+-OLD = PARENT / 'runs/formal'
+-OUT = PARENT / 'runs/revision_20261026'
++from ..allocation import matching_plan, solve_allocation, service_margin, report_channel
++from ..experiments import metrics, update_error
++from ..forecast import fit_arfima, step_weights, predict_at, quantile_reserve, errors
++from ..resources import Meter, environment, write_csv, write_json
++
++OLD = Path(os.environ.get('BEAM_HOPPING_DATA_ROOT', PARENT / 'runs/formal')).resolve()
++OUT = Path(os.environ.get('BEAM_HOPPING_REVISION_ROOT', PARENT / 'runs/revision_20261026')).resolve()
+ SCENARIOS = ('baseline_a1.6', 'hotspot_a1.6')
+ HORIZONS = (12, 24, 48)
+ CORE = ('throughput_matching', 'urgency_no_prediction', 'prediction_matching',
+--- original/revision_code/summarize.py
++++ ported/revision_code/summarize.py
+@@ -9,9 +9,8 @@
+ matplotlib.use('Agg')
+ import matplotlib.pyplot as plt
+ 
+-sys.path.insert(0,str(Path(__file__).resolve().parent))
+-from revision import OUT, SCENARIOS, CORE
+-from resources import write_json
++from .revision import OUT, SCENARIOS, CORE
++from ..resources import write_json
+ 
+ LABELS={'throughput_matching':'Throughput matching','urgency_no_prediction':'Historical demand matching',
+         'prediction_matching':'Prediction matching','reserve_matching':'Reserve matching',
+--- original/revision_code/verify_results.py
++++ ported/revision_code/verify_results.py
+@@ -7,9 +7,8 @@
+ import numpy as np
+ import pandas as pd
+ 
+-sys.path.insert(0,str(Path(__file__).resolve().parent))
+-from revision import OUT, PARENT, SCENARIOS, HORIZONS
+-from resources import write_json, write_csv
++from .revision import OUT, PARENT, SCENARIOS, HORIZONS
++from ..resources import write_json, write_csv
+ 
+ 
+ def main():
+--- original/revision_code/test_revision.py
++++ ported/revision_code/test_revision.py
+@@ -8,9 +8,8 @@
+ import numpy as np
+ import cvxpy as cp
+ 
+-sys.path.insert(0,str(Path(__file__).resolve().parent))
+-import revision as r
+-from allocation import exact_matching
++from synthetic_traffic_validation.revision_code import revision as r
++from synthetic_traffic_validation.allocation import exact_matching
+ 
+ 
+ class RevisionTests(unittest.TestCase):

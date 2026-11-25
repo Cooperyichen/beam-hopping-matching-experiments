@@ -149,3 +149,7 @@ python3 cross_time_online_matching.py \
 - `MOSEK`
 
 优化求解默认使用 MOSEK。若 MOSEK 不可用，相关 LP 与 BILP 实验应停止并报告环境问题。
+
+## Forecasting policies and deficit scheduling supplement
+
+The [collaborator reuse guide](beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/README.md) maps the Pareto forecasting PDF to its implementations, documents Yekta Demirci supplied source lineage and subsequent adaptations, and introduces a separate fixed resource deficit controller. See the [PDF policy map](beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/PDF_STRATEGY_MAP.md), [deficit integration guide](beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/DEFICIT_GUIDE.md), [source provenance](beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/SOURCE_PROVENANCE.md), and [project journal](beam_hopping_experiment_artifacts/reports/PROJECT_JOURNAL.md). Historical results are not evidence of deficit stability.

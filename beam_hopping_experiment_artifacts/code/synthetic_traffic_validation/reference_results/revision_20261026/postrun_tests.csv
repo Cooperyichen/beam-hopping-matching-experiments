@@ -1,0 +1,27 @@
+test,passed
+unique paired evaluation records,True
+all frozen formal records present,True
+target begins immediately after last available observation,True
+target dimensions match horizon,True
+test targets remain in physical partition,True
+coverage bounded,True
+useful plus unmet conserves demand,True
+raw service is not less than useful service,True
+all optimizer attempts accounted,True
+window latency ratio uses physical duration,True
+latency includes every measured phase,True
+hybrid final branches exclusive and exhaustive,True
+direct matching has no repair or full calls,True
+repair acceptance does not include full optimization,True
+full acceptance has a full call,True
+pure matching makes no protected reliability claim,True
+unresolved status never called proved infeasible,True
+certified margins satisfy tolerance,True
+parent source unchanged,True
+frozen formal decision code unchanged,True
+baseline_a1.6 12 calibration and test separated,True
+baseline_a1.6 24 calibration and test separated,True
+baseline_a1.6 48 calibration and test separated,True
+hotspot_a1.6 12 calibration and test separated,True
+hotspot_a1.6 24 calibration and test separated,True
+hotspot_a1.6 48 calibration and test separated,True

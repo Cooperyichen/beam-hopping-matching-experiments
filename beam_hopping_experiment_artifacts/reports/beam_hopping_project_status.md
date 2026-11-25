@@ -63,3 +63,7 @@ ThinkPad SSH 认证成功，但远端 shell wrapper 报错：
 ```
 
 用户已确认改为 MacBook 本地工作。ThinkPad 阻塞不再阻止当前项目推进。
+
+## Supplement recorded on 2026-11-24
+
+The forecasting PDF strategies are now packaged for collaborator reuse, with explicit source lineage, historical evidence and a separate deficit matching controller. Implementation checks do not establish the theorem assumptions or chance guarantees. See [PROJECT_JOURNAL.md](PROJECT_JOURNAL.md) and the [reuse guide](../code/synthetic_traffic_validation/README.md). Earlier node connectivity statements above are historical; thinkpad-wsl was reachable during this task.

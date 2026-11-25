@@ -1,0 +1,216 @@
+running bdist_wheel
+running build
+running build_py
+creating build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/verify_evidence.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/traffic.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/forecast.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/benchmarks.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/__init__.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/experiments.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/cli.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/reporting.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/provenance.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/operational.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/resources.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/allocation.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/verify_port.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/deficit_matching.py -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/deficit_demo.py -> build/lib/synthetic_traffic_validation
+creating build/lib/synthetic_traffic_validation/revision_code
+copying synthetic_traffic_validation/revision_code/__init__.py -> build/lib/synthetic_traffic_validation/revision_code
+copying synthetic_traffic_validation/revision_code/verify_results.py -> build/lib/synthetic_traffic_validation/revision_code
+copying synthetic_traffic_validation/revision_code/revision.py -> build/lib/synthetic_traffic_validation/revision_code
+copying synthetic_traffic_validation/revision_code/summarize.py -> build/lib/synthetic_traffic_validation/revision_code
+copying synthetic_traffic_validation/revision_code/test_revision.py -> build/lib/synthetic_traffic_validation/revision_code
+running egg_info
+creating beam_hopping_strategies.egg-info
+writing beam_hopping_strategies.egg-info/PKG-INFO
+writing dependency_links to beam_hopping_strategies.egg-info/dependency_links.txt
+writing requirements to beam_hopping_strategies.egg-info/requires.txt
+writing top-level names to beam_hopping_strategies.egg-info/top_level.txt
+writing manifest file 'beam_hopping_strategies.egg-info/SOURCES.txt'
+reading manifest file 'beam_hopping_strategies.egg-info/SOURCES.txt'
+writing manifest file 'beam_hopping_strategies.egg-info/SOURCES.txt'
+copying synthetic_traffic_validation/DEFICIT_GUIDE.md -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/PDF_STRATEGY_MAP.md -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/README.md -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/SOURCE_PROVENANCE.md -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/source_port_changes.patch -> build/lib/synthetic_traffic_validation
+copying synthetic_traffic_validation/source_provenance.json -> build/lib/synthetic_traffic_validation
+creating build/lib/synthetic_traffic_validation/theory
+copying synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md -> build/lib/synthetic_traffic_validation/theory
+copying synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md -> build/lib/synthetic_traffic_validation/theory
+creating build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/verification.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/protocol.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/environment.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/summary.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/tests.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+creating build/lib/synthetic_traffic_validation/reference_results/revision_20261026/resources
+copying synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026/resources
+copying synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md -> build/lib/synthetic_traffic_validation/theory
+copying synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md -> build/lib/synthetic_traffic_validation/theory
+copying synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/environment.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/protocol.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/summary.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/tests.csv -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/verification.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026
+copying synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json -> build/lib/synthetic_traffic_validation/reference_results/revision_20261026/resources
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/verify_evidence.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/traffic.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/forecast.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/source_port_changes.patch -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/benchmarks.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/__init__.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/experiments.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/cli.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/source_provenance.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/reporting.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/provenance.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/PDF_STRATEGY_MAP.md -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/operational.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/resources.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/allocation.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/DEFICIT_GUIDE.md -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/verify_port.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+creating build/bdist.linux-x86_64/wheel/synthetic_traffic_validation/reference_results
+creating build/bdist.linux-x86_64/wheel/synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/verification.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/summary.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/protocol.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/environment.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/tests.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026
+creating build/bdist.linux-x86_64/wheel/synthetic_traffic_validation/reference_results/revision_20261026/resources
+copying build/lib/synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/reference_results/revision_20261026/resources
+copying build/lib/synthetic_traffic_validation/deficit_matching.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+creating build/bdist.linux-x86_64/wheel/synthetic_traffic_validation/theory
+copying build/lib/synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/theory
+copying build/lib/synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/theory
+copying build/lib/synthetic_traffic_validation/SOURCE_PROVENANCE.md -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/deficit_demo.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+copying build/lib/synthetic_traffic_validation/README.md -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation
+creating build/bdist.linux-x86_64/wheel/synthetic_traffic_validation/revision_code
+copying build/lib/synthetic_traffic_validation/revision_code/__init__.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/revision_code
+copying build/lib/synthetic_traffic_validation/revision_code/verify_results.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/revision_code
+copying build/lib/synthetic_traffic_validation/revision_code/revision.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/revision_code
+copying build/lib/synthetic_traffic_validation/revision_code/summarize.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/revision_code
+copying build/lib/synthetic_traffic_validation/revision_code/test_revision.py -> build/bdist.linux-x86_64/wheel/./synthetic_traffic_validation/revision_code
+running install_egg_info
+Copying beam_hopping_strategies.egg-info to build/bdist.linux-x86_64/wheel/./beam_hopping_strategies-0.1.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/beam_hopping_strategies-0.1.0.dist-info/WHEEL
+creating '/tmp/beam_hopping_strategy_wheels_20261124/.tmp-42ciiajo/beam_hopping_strategies-0.1.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'synthetic_traffic_validation/DEFICIT_GUIDE.md'
+adding 'synthetic_traffic_validation/PDF_STRATEGY_MAP.md'
+adding 'synthetic_traffic_validation/README.md'
+adding 'synthetic_traffic_validation/SOURCE_PROVENANCE.md'
+adding 'synthetic_traffic_validation/__init__.py'
+adding 'synthetic_traffic_validation/allocation.py'
+adding 'synthetic_traffic_validation/benchmarks.py'
+adding 'synthetic_traffic_validation/cli.py'
+adding 'synthetic_traffic_validation/deficit_demo.py'
+adding 'synthetic_traffic_validation/deficit_matching.py'
+adding 'synthetic_traffic_validation/experiments.py'
+adding 'synthetic_traffic_validation/forecast.py'
+adding 'synthetic_traffic_validation/operational.py'
+adding 'synthetic_traffic_validation/provenance.py'
+adding 'synthetic_traffic_validation/reporting.py'
+adding 'synthetic_traffic_validation/resources.py'
+adding 'synthetic_traffic_validation/source_port_changes.patch'
+adding 'synthetic_traffic_validation/source_provenance.json'
+adding 'synthetic_traffic_validation/traffic.py'
+adding 'synthetic_traffic_validation/verify_evidence.py'
+adding 'synthetic_traffic_validation/verify_port.py'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/environment.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/protocol.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/summary.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/tests.csv'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/verification.json'
+adding 'synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json'
+adding 'synthetic_traffic_validation/revision_code/__init__.py'
+adding 'synthetic_traffic_validation/revision_code/revision.py'
+adding 'synthetic_traffic_validation/revision_code/summarize.py'
+adding 'synthetic_traffic_validation/revision_code/test_revision.py'
+adding 'synthetic_traffic_validation/revision_code/verify_results.py'
+adding 'synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md'
+adding 'synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md'
+adding 'beam_hopping_strategies-0.1.0.dist-info/METADATA'
+adding 'beam_hopping_strategies-0.1.0.dist-info/WHEEL'
+adding 'beam_hopping_strategies-0.1.0.dist-info/top_level.txt'
+adding 'beam_hopping_strategies-0.1.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+beam_hopping_strategies-0.1.0-py3-none-any.whl

@@ -1,0 +1,11 @@
+{
+  "rows": 2728,
+  "solver_calls": 998,
+  "stages": [
+    "A",
+    "B",
+    "C"
+  ],
+  "sequential_D_executed": false,
+  "source_sha256": "34d310d9e6c6c41dc79273bd1f84dfee2ae3fd724aeb40357c43113da8b37d93"
+}

@@ -1,0 +1,17 @@
+{
+  "lam": 2.0,
+  "gamma": 0.95,
+  "kappa": 2.0,
+  "calibration_error_state": [
+    2.484641413298504,
+    3.201548866005428,
+    3.929176857873508,
+    2.368466060893047,
+    3.0791505320208032,
+    4.6402606619278055,
+    2.6125055432541644,
+    3.1089549737379056
+  ],
+  "calibration_origins": 96,
+  "selection_objective": "mean exact conditional Gaussian cell violation"
+}

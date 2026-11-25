@@ -1,0 +1,15 @@
+{
+  "stage": "formal_B_C",
+  "wall_s": 217.85130201932043,
+  "cpu_s": 359.80604196599995,
+  "process_lifetime_peak_rss_mib": 936.71484375,
+  "cuda_peak_allocated_mib": 0.0,
+  "cuda_peak_reserved_mib": 0.0,
+  "gpu_telemetry_samples": 739,
+  "completed": true,
+  "gpu_mean_utilization_percent": 0.0,
+  "gpu_mean_power_w": 2.7920297699594046,
+  "gpu_peak_power_w": 11.88,
+  "gpu_device_peak_memory_mib": 69.0,
+  "sampled_device_energy_j": 605.784957294271
+}

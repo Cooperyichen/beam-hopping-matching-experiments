@@ -1,0 +1,117 @@
+{
+  "source_root_description": "Existing ThinkPad synthetic_traffic_validation experiment directory",
+  "source_files": {
+    "allocation.py": {
+      "sha256_before_port": "eecb0923d618634ba1c297a68eda09ae21d09d7743c85e2231b59d639bd90495",
+      "sha256_after_port": "444921e65ccfa582118f6434afed566f3c71206d6473463d618e2d1372092b00"
+    },
+    "traffic.py": {
+      "sha256_before_port": "f5a4d410a12e342d1485c418ca75ff83bb036b3fcb6ae388080c440da91acdff",
+      "sha256_after_port": "6e0715db6b62b0a59994b7798824c5e5bf7cf5ac80a3e15f7dc14efcb5528a4e"
+    },
+    "forecast.py": {
+      "sha256_before_port": "ed3537cdaa2201df66b0c52e3a053f434b7d3cce3f346a455f0ae5ea9edc8c6b",
+      "sha256_after_port": "55ecb2fe95a4f4578502fe9cc6f8d27ddb008e74ff4dc1c3d155be3ced04521d"
+    },
+    "experiments.py": {
+      "sha256_before_port": "0eb0dba30bc902ad6ad5183020c4f9054f2598682176ead6f16aca8d8c9451f7",
+      "sha256_after_port": "fe1a8e937a720746dfe4ef1db39fcaf859160053d8e95f09aad798800955022e"
+    },
+    "resources.py": {
+      "sha256_before_port": "fb17c0891e56f1d6e253f5cdf6fabc0dbdba121dd240d1b36e8362ffb3c9345e",
+      "sha256_after_port": "e816775b2a994e327a73ea26804c833ce9922a809b41f5fc1f21cc2cb9638dd8"
+    },
+    "provenance.py": {
+      "sha256_before_port": "aa259c6067fe8e7bbb87326b4c29c627f23b4eea8e63d641208bf1aedecf18d3",
+      "sha256_after_port": "8f1f5fc93c1e331552cf3fd5078e87a6f3e1e7e85ab12bc4701c1b44d065242b"
+    },
+    "cli.py": {
+      "sha256_before_port": "c35c90cd29008bf3fe6046e5c23ed29232b1e1665dc0556224f8988104eca2d1",
+      "sha256_after_port": "26a28f3ab3ca755203f1c5e81e3e5dcdfbe088e74c0cddbfac6a0993a2d28623"
+    },
+    "operational.py": {
+      "sha256_before_port": "b731c7ece14dca65438d76d3c60098044ea7f5821b21e35cd87bb686951e3926",
+      "sha256_after_port": "85147cd51b8cd6d1585ba04e242dd4ab8e5fbf2f3ac2c305b0ab67b225bbab82"
+    },
+    "benchmarks.py": {
+      "sha256_before_port": "e3d4ac812b8ecb3abc3d7f7744dece1074d3daaafd47933bc802d06b293627b0",
+      "sha256_after_port": "e0346fae62844f5ada45dc4b87d44faa2e46ddf31fa4e35a20ba5d16cc6f0aab"
+    },
+    "reporting.py": {
+      "sha256_before_port": "7e9ef9c4cc827b112ae7ee22a3a632bb2636443e270873eaa2caddc784f258b6",
+      "sha256_after_port": "3c799ba2892eb1292e6ce3dc1fc9ed4f5d611d414bfcb3b43687f2704f33d3e5"
+    },
+    "tests/test_core.py": {
+      "sha256_before_port": "7c8c7aad40d02e7edcb7d9f884bcfea3a15464ec04f2a5d1bb9fa8d68e8b28fc",
+      "sha256_after_port": "fdba9298c1e9d0cb29afe1a94688e5dd70eacbca8aa42ef497008c758f531a49"
+    },
+    "revision_code/revision.py": {
+      "sha256_before_port": "34d310d9e6c6c41dc79273bd1f84dfee2ae3fd724aeb40357c43113da8b37d93",
+      "sha256_after_port": "93d0eae742f217027b21756ae89cc3e2eb7388758ae8163911198d356ce88a14"
+    },
+    "revision_code/summarize.py": {
+      "sha256_before_port": "e135b3454a00f76b8607f04bd190ca0f11d7d14d758ba97c32e61aa4882ad634",
+      "sha256_after_port": "a84d6956114099b2ebba52f3f41fcf1d9a9e79d2110597338ea584c33a9ea8f6"
+    },
+    "revision_code/verify_results.py": {
+      "sha256_before_port": "8cbf7586a06fad623099adec28f41618104c7164e89d2dd3bdf7105f150c04c1",
+      "sha256_after_port": "b5eadaafcdb0897fafafbea3bf9ed92ec6a9fab542fc7f876c94e72700a10c36"
+    },
+    "revision_code/test_revision.py": {
+      "sha256_before_port": "7356986caefe8a9ce95d8352c7f80d00959475325d9aaf68ed75e312e5f815f8",
+      "sha256_after_port": "bb31fc6d2bbe9d8e142f66c463252ab01d3b69357ff110d362b7f8aa016d9c53"
+    }
+  },
+  "collaborator_supplied_sources": {
+    "1-pareto_old.py": {
+      "sha256": "fc35877c9925c30633424f12ce520ffec2400533b18f66ac72961e12cb84b624",
+      "author": "Yekta Demirci, identified by the project owner",
+      "redistributed": false,
+      "exact_upstream_revision": "not established"
+    },
+    "2-farima_f.py": {
+      "sha256": "67ca4c1d66f56f56db0682a1e1be4de03a80a11e83ab72d2fe5721192640e3b7",
+      "author": "Yekta Demirci, identified by the project owner",
+      "redistributed": false,
+      "exact_upstream_revision": "not established"
+    },
+    "3-gen_onoff_pareto.py": {
+      "sha256": "c886d4ecfb6d8e29e820eb484afc1e7a284d9e10137715530975ef8e4f800399",
+      "author": "Yekta Demirci, identified by the project owner",
+      "redistributed": false,
+      "exact_upstream_revision": "not established"
+    },
+    "4-farima.py": {
+      "sha256": "a67a34d89c9f399ece2b24b8ef8a8577a41885c9cdb311e4e5f9b289d39e846f",
+      "author": "Yekta Demirci, identified by the project owner",
+      "redistributed": false,
+      "exact_upstream_revision": "not established"
+    }
+  },
+  "port_changes": [
+    "Internal imports changed to package relative imports; tests use the package namespace. No model or estimator formula changed by this mechanical port.",
+    "Revision roots read optional environment overrides; no sys.path mutation.",
+    "CVXPY imported only when optimization is called; MOSEK choice unchanged.",
+    "GPU telemetry searches PATH and RSS units account for macOS.",
+    "New deficit controller is separate from historical policies."
+  ],
+  "related_public_repository": {
+    "url": "https://github.com/YektaDemirci/leoForecast",
+    "commit": "3dc4cc24cbb35a91ea89849a277cb0ea8564b562",
+    "status": "related versions, not byte identical to supplied snapshots",
+    "files": [
+      {
+        "path": "farima_f.py",
+        "sha256": "0376f3335c23520c6b8c5bb2ee5134f7ead1e47281daf6352f7e0954772f2fad"
+      },
+      {
+        "path": "beamHop/gen_onoff_pareto.py",
+        "sha256": "6f4409ffbe7aefebefa27eaa2dfa7de066198df18dae4416f1f6430a666094ef"
+      },
+      {
+        "path": "syntheticData_flows/gen_onoff_pareto.py",
+        "sha256": "963cce5421f6fa227b7039cdd37f028c7358d829a22b704951ae97dc5c26e006"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "passed": 26,
+  "failed": 0,
+  "formal_rows": 2728,
+  "optimizer_attempts": 998,
+  "requirements_sha256": "bb7b3f08f7dc75738fc2c83659c2367ab795bdb7420bac9f3dd82e3cd761d2ca",
+  "sequential_D_started": false
+}
