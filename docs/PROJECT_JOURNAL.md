@@ -81,3 +81,9 @@ The ThinkPad checkout and temporary installation are isolated from the owner's o
 The verified layout was published as commit `505e6ee49ef93490ab85f7ddc06e8a34b1b55b1d` on `codex/functional-project-layout`. [PR 3](https://github.com/Cooperyichen/beam-hopping-matching-experiments/pull/3) targets `main` and was open, mergeable and free of conflicts at verification. No GitHub status checks were present; that is not a CI pass. PR 2 is already merged, while PR 3 remains separate pending the owner's choice about merging this broader reorganization. The new branch homepage is the shareable collaborator entry until then.
 
 The current journal and path manifest were synchronized back to ThinkPad after publication. The final local and remote checkouts are dedicated task copies; the owner's original Mac working tree remains unchanged. Remaining work is owner review or merge choice, not an unresolved test failure. There is no additional experiment or model change in this publication record.
+
+## 2026-11-25 — Main branch integration
+
+The owner explicitly approved merging the validated reorganization. [PR 3](https://github.com/Cooperyichen/beam-hopping-matching-experiments/pull/3) was merged into `main` as `fc0007faca42cfac63868a1c2a7ae93337b75909`. The exact approved head was `3ff4ef56ef7b19e5aca8a330103dacf89a58af77`, with 59 passing local tests and the preservation checks documented above. No conflicting changes or failing GitHub checks were present; no GitHub Actions result is claimed.
+
+Collaborators can now use the default repository homepage rather than a topic branch link. Existing published branches were retained. This follow-up updates only the shared journal and its migration-manifest hash; it introduces no source, model or result change. The dedicated ThinkPad checkout is synchronized to the merged main branch. The earlier statement that PR 3 was pending review is superseded by this integration record.
