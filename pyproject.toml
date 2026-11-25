@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "beam-hopping-strategies"
+version = "0.1.0"
+description = "Reusable matching, forecasting and scheduling experiments"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.11"]
+
+[project.optional-dependencies]
+optimization = ["cvxpy>=1.6", "Mosek>=11"]
+learning = ["torch>=2.0"]
+plots = ["pandas>=2.0", "matplotlib>=3.8"]
+experiments = ["numpy>=2.0", "cvxpy>=1.6", "Mosek>=11", "torch>=2.0", "pandas>=2.0", "matplotlib>=3.8"]
+test = ["pytest>=8"]
+
+[project.scripts]
+beam-hopping = "beam_hopping.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["beam_hopping*", "synthetic_traffic_validation*"]
+exclude = ["synthetic_traffic_validation.tests*"]
+
+[tool.setuptools.package-data]
+synthetic_traffic_validation = ["*.md", "*.json", "*.patch", "theory/*.md", "reference_results/revision_20261026/*.json", "reference_results/revision_20261026/*.csv", "reference_results/revision_20261026/resources/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests", "src/synthetic_traffic_validation/tests", "src/synthetic_traffic_validation/revision_code/test_revision.py"]

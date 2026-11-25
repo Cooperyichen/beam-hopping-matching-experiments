@@ -1,4 +1,4 @@
-# Preserve the exact bytes fingerprinted by the historical archive manifest.
-beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/** -text whitespace=cr-at-eol
-# Unified diff context includes significant leading spaces on blank lines.
-beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/source_port_changes.patch -text -whitespace
+# Keep recorded evidence byte identical, including its existing CRLF endings.
+results/** -text whitespace=cr-at-eol
+src/synthetic_traffic_validation/reference_results/** -text whitespace=cr-at-eol
+src/synthetic_traffic_validation/source_port_changes.patch -text -whitespace

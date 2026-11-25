@@ -3,15 +3,12 @@ __pycache__/
 .pytest_cache/
 *.py[cod]
 *.swp
-
-# Generated delivery mirror. Canonical files live under code/ and reports/.
-beam_hopping_experiment_artifacts/delivery/
-
-# Local experimental worktrees.
-beam_hopping_marl_drl_worktree/
-
-# New experiment outputs and local package build products.
-beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/runs/
 *.egg-info/
-beam_hopping_experiment_artifacts/code/build/
-beam_hopping_experiment_artifacts/code/dist/
+.venv/
+build/
+dist/
+/runs/
+/src/synthetic_traffic_validation/runs/
+/beam_hopping_experiment_artifacts/delivery/
+/beam_hopping_experiment_artifacts/code/results/
+/beam_hopping_marl_drl_worktree/

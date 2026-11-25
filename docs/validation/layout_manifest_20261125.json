@@ -1,0 +1,1078 @@
+{
+  "date": "2026-11-25",
+  "base_commit": "26e57bb247b661e1c581b90c654f1869fe4ac453",
+  "files": [
+    {
+      "old_path": ".gitattributes",
+      "new_path": ".gitattributes",
+      "before_sha256": "ab365bc7b57e9d597a19182bedea035eed441462696ea5af0008e270f74a0cf8",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/.gitattributes",
+      "preserve_bytes": false,
+      "after_sha256": "bad937aafe396eac3f42c03a2c94fde30f749951dc77661f90f79e4beec909ca"
+    },
+    {
+      "old_path": ".gitignore",
+      "new_path": ".gitignore",
+      "before_sha256": "b4fa1271726860f5f2b38ba70a627e96219116de25e286542e2a905ed4b89e76",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/.gitignore",
+      "preserve_bytes": false,
+      "after_sha256": "41892246e1d718d7a73bb32ae7055ecbd53cdeeeb779956e0e941842f825cf84"
+    },
+    {
+      "old_path": "README.md",
+      "new_path": "README.md",
+      "before_sha256": "4de8c245013f38b823daa0337dbd230afae66e5705aa4753dfea17c97141c44b",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/README.md",
+      "preserve_bytes": false,
+      "after_sha256": "789541474905c8a5b6fd0bc0383a245aec447abf5537a13a3c2f6f5a5f4f2f4f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/README.md",
+      "new_path": "beam_hopping_experiment_artifacts/code/README.md",
+      "before_sha256": "37b6e4a0ffe088c3ff6ebe541b73ea002de2dc03e80e77b2a464c7a866cbe251",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/README.md",
+      "preserve_bytes": false,
+      "after_sha256": "4e4c5c837cd307d4eabfee57c05636b248630c505bf50b88a2e70116423c322e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/ci/README.md",
+      "new_path": null,
+      "before_sha256": "7ac1005610cfc2a39772109c32030648eb2dfe62e784b594caca207685815bf7",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/ci/README.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/ci/strategy-tests.example.yml",
+      "new_path": ".github/templates/strategy-tests.example.yml",
+      "before_sha256": "d217a4011a34bf5297dec79e7134bcae6279f2c2906998c6cbc3a3ffcf61e570",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/ci/strategy-tests.example.yml",
+      "preserve_bytes": false,
+      "after_sha256": "93dea81b42cb841b74b95a0bd746e6df4034d65d3d8d5fb2f8d2aaa26e5d009e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/cross_time_online_matching.py",
+      "new_path": "src/beam_hopping/scheduling/online.py",
+      "before_sha256": "e6706779381b0eca04970318e0172d302337209b0ca496c2545d3d2e38f8f934",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/cross_time_online_matching.py",
+      "preserve_bytes": false,
+      "after_sha256": "e2c2be1374fca8fb28571e4d578e64978785d66cfbed1deb380cc7f3ecc727d4"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/docs/research_notes/2026-11-10_deficit_weighted_matching_theorem_original.md",
+      "new_path": "docs/research_notes/2026-11-10_deficit_weighted_matching_theorem_original.md",
+      "before_sha256": "e96cbf78c8c0bbad1caa5ef0a01714e90b1d10c59e9e1a62aef289dfea2ed5bf",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/docs/research_notes/2026-11-10_deficit_weighted_matching_theorem_original.md",
+      "preserve_bytes": true,
+      "after_sha256": "e96cbf78c8c0bbad1caa5ef0a01714e90b1d10c59e9e1a62aef289dfea2ed5bf"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/docs/research_notes/2026-11-12_deficit_error_tolerance_progress.md",
+      "new_path": "docs/research_notes/2026-11-12_deficit_error_tolerance_progress.md",
+      "before_sha256": "1375113da855580c0b76b085e6d60e516659b5831f40f2f03e4d7b86c5849cad",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/docs/research_notes/2026-11-12_deficit_error_tolerance_progress.md",
+      "preserve_bytes": true,
+      "after_sha256": "1375113da855580c0b76b085e6d60e516659b5831f40f2f03e4d7b86c5849cad"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/docs/research_notes/README.md",
+      "new_path": "docs/research_notes/README.md",
+      "before_sha256": "dd127beebaa93d7e4ecf186d66662512fd716dbfa5e138324eff02f49ceacfe3",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/docs/research_notes/README.md",
+      "preserve_bytes": false,
+      "after_sha256": "328ee97d5b545d49c694af0bdd0fa59cd9072ff234f2c3f85d045c1aa9ad3121"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/drl_marl_reproduction.py",
+      "new_path": "src/beam_hopping/learning/reinforcement.py",
+      "before_sha256": "9cda43a4c275222c07fe5ce6ba1bfba1da169450d1e1b0f6aa4fc598b7d53e0f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/drl_marl_reproduction.py",
+      "preserve_bytes": false,
+      "after_sha256": "9cda43a4c275222c07fe5ce6ba1bfba1da169450d1e1b0f6aa4fc598b7d53e0f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/phase3_benchmarks.py",
+      "new_path": "src/beam_hopping/matching/heuristics.py",
+      "before_sha256": "5777f98ad886aa716091b06a14079ef0ad6109c2c257f4b864a18dc70b691f11",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/phase3_benchmarks.py",
+      "preserve_bytes": false,
+      "after_sha256": "a760dead86994e0080b6a1b38acaf1ed40797a727497ad553ceae2bf84222c8d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/presentation_plots.py",
+      "new_path": "src/beam_hopping/visualization/presentation.py",
+      "before_sha256": "6d2950f6671d1884af505a751dab4e10a2c5c257cce7f50e8acb73b740b1a8d4",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/presentation_plots.py",
+      "preserve_bytes": false,
+      "after_sha256": "434091f894bb2655218f7ea40043ca85805cd3d58496770508f824d1c6a49e85"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/pyproject.toml",
+      "new_path": "pyproject.toml",
+      "before_sha256": "2d10966214ba89fbe7a5a9381320a4ec1e0cc315e73cc4daae3b7f3bd4649080",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/pyproject.toml",
+      "preserve_bytes": false,
+      "after_sha256": "d2dc6ca466616e4afb8a7454353e2fea73456ec52230e116e71a53c2b01cdb2f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/phase_1_integrality_violation.png",
+      "new_path": "results/figures/phase_1_integrality_violation.png",
+      "before_sha256": "7aaacead81b79acbd3d1bde43e287ccfa55875787a9adb40ef15670807c2c8f6",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/phase_1_integrality_violation.png",
+      "preserve_bytes": true,
+      "after_sha256": "7aaacead81b79acbd3d1bde43e287ccfa55875787a9adb40ef15670807c2c8f6"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/phase_1_large_scale_runtime.png",
+      "new_path": "results/figures/phase_1_large_scale_runtime.png",
+      "before_sha256": "efee1d8da5a337a87cdf81550fb1d85d01926d198cb925d3266bcc1fd26e0ee2",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/phase_1_large_scale_runtime.png",
+      "preserve_bytes": true,
+      "after_sha256": "efee1d8da5a337a87cdf81550fb1d85d01926d198cb925d3266bcc1fd26e0ee2"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/phase_1_large_scale_solver_time.png",
+      "new_path": "results/figures/phase_1_large_scale_solver_time.png",
+      "before_sha256": "834da0411d1d4f8e7fdf266c6bef93ab032deab3ec5b21ed244f4b277dd576f6",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/phase_1_large_scale_solver_time.png",
+      "preserve_bytes": true,
+      "after_sha256": "834da0411d1d4f8e7fdf266c6bef93ab032deab3ec5b21ed244f4b277dd576f6"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/phase_1_runtime_boxplot.png",
+      "new_path": "results/figures/phase_1_runtime_boxplot.png",
+      "before_sha256": "821b580d4a7b610b8ba5e6e14df8d3504c6e1c6d5f98eb0cc1995f129add8860",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/phase_1_runtime_boxplot.png",
+      "preserve_bytes": true,
+      "after_sha256": "821b580d4a7b610b8ba5e6e14df8d3504c6e1c6d5f98eb0cc1995f129add8860"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/phase_3_objective_ratio.png",
+      "new_path": "results/figures/phase_3_objective_ratio.png",
+      "before_sha256": "840b1c4ee07399bc5aa4f8a5173530efa73682d1073f22f20701c37a0b1ac6d2",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/phase_3_objective_ratio.png",
+      "preserve_bytes": true,
+      "after_sha256": "840b1c4ee07399bc5aa4f8a5173530efa73682d1073f22f20701c37a0b1ac6d2"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/presentation_integrality_violation.pdf",
+      "new_path": "results/figures/presentation_integrality_violation.pdf",
+      "before_sha256": "119d754cd1735c8cd647ef3ee49038fa2b9fbb159cb520fede2ea672d9912514",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/presentation_integrality_violation.pdf",
+      "preserve_bytes": true,
+      "after_sha256": "119d754cd1735c8cd647ef3ee49038fa2b9fbb159cb520fede2ea672d9912514"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/presentation_integrality_violation.png",
+      "new_path": "results/figures/presentation_integrality_violation.png",
+      "before_sha256": "2a20f0366c97c510feab67901723e4281b99482b8037706573a3898bb466881f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/presentation_integrality_violation.png",
+      "preserve_bytes": true,
+      "after_sha256": "2a20f0366c97c510feab67901723e4281b99482b8037706573a3898bb466881f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/presentation_mosek_solver_time.pdf",
+      "new_path": "results/figures/presentation_mosek_solver_time.pdf",
+      "before_sha256": "85771d6466b846f3075094f6e87aa570becb17cd0c0871272cee4bb02af139fa",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/presentation_mosek_solver_time.pdf",
+      "preserve_bytes": true,
+      "after_sha256": "85771d6466b846f3075094f6e87aa570becb17cd0c0871272cee4bb02af139fa"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/presentation_mosek_solver_time.png",
+      "new_path": "results/figures/presentation_mosek_solver_time.png",
+      "before_sha256": "832c7bfa40af0c5782e33a54cf650e4617ffc7a75a33e5c17f5483b232e9709a",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/presentation_mosek_solver_time.png",
+      "preserve_bytes": true,
+      "after_sha256": "832c7bfa40af0c5782e33a54cf650e4617ffc7a75a33e5c17f5483b232e9709a"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/presentation_phase3_objective_ratio.pdf",
+      "new_path": "results/figures/presentation_phase3_objective_ratio.pdf",
+      "before_sha256": "a654af46526d09bb56d9b77e2daa70d54f0d7586869888377ed02f92abbfa40d",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/presentation_phase3_objective_ratio.pdf",
+      "preserve_bytes": true,
+      "after_sha256": "a654af46526d09bb56d9b77e2daa70d54f0d7586869888377ed02f92abbfa40d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/figures/presentation_phase3_objective_ratio.png",
+      "new_path": "results/figures/presentation_phase3_objective_ratio.png",
+      "before_sha256": "ff7412e575586a7263f0764a259410c048e3835cf4c24bfbb31712d263a77277",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/figures/presentation_phase3_objective_ratio.png",
+      "preserve_bytes": true,
+      "after_sha256": "ff7412e575586a7263f0764a259410c048e3835cf4c24bfbb31712d263a77277"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_lp_only_results.csv",
+      "new_path": "results/single_slot/phase_1_large_scale_lp_only_results.csv",
+      "before_sha256": "7703c31388a00d8dfe2b2506a291e81448207f510a6b096fbca40d5bb2cd85bf",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_lp_only_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "7703c31388a00d8dfe2b2506a291e81448207f510a6b096fbca40d5bb2cd85bf"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_results.csv",
+      "new_path": "results/single_slot/phase_1_large_scale_results.csv",
+      "before_sha256": "3364c0f1d7124705e49676c7308301a52f9e947a4de608dae6dc69298cd2c70c",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "3364c0f1d7124705e49676c7308301a52f9e947a4de608dae6dc69298cd2c70c"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_summary.csv",
+      "new_path": "results/single_slot/phase_1_large_scale_summary.csv",
+      "before_sha256": "3bcd0297316c9d52e9da7c400fae287600cead5912a8112aeb134fdc8f73c126",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "3bcd0297316c9d52e9da7c400fae287600cead5912a8112aeb134fdc8f73c126"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_summary_source.csv",
+      "new_path": "results/single_slot/phase_1_large_scale_summary_source.csv",
+      "before_sha256": "f83dac3d51ab8e86d13852554fc5ebd3b2411c66eba842e8a9665d295b3d03ec",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_large_scale_summary_source.csv",
+      "preserve_bytes": true,
+      "after_sha256": "f83dac3d51ab8e86d13852554fc5ebd3b2411c66eba842e8a9665d295b3d03ec"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_single_slot_results.csv",
+      "new_path": "results/single_slot/phase_1_single_slot_results.csv",
+      "before_sha256": "f2895230141f56b47030267bc9ec9ff4822f15632254934f7f480bb44d9944b1",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_single_slot_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "f2895230141f56b47030267bc9ec9ff4822f15632254934f7f480bb44d9944b1"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_smoke_results.csv",
+      "new_path": "results/single_slot/phase_1_smoke_results.csv",
+      "before_sha256": "deff5baefb447be820ceedb4cad4514e4a81b56b3fdb016ea2fa65f3c0ac326f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_smoke_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "deff5baefb447be820ceedb4cad4514e4a81b56b3fdb016ea2fa65f3c0ac326f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_1_summary.csv",
+      "new_path": "results/single_slot/phase_1_summary.csv",
+      "before_sha256": "896241d95b068d9baa1085385e6ac19991489f78378540934d1edb5023af6143",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_1_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "896241d95b068d9baa1085385e6ac19991489f78378540934d1edb5023af6143"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction.csv",
+      "new_path": "results/learning/phase_3_drl_marl_reproduction.csv",
+      "before_sha256": "2a66d6547a13ed8a1d94e1966e7a485b929ee0b5a8dd2217ffb68253b982c815",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction.csv",
+      "preserve_bytes": true,
+      "after_sha256": "2a66d6547a13ed8a1d94e1966e7a485b929ee0b5a8dd2217ffb68253b982c815"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction_medium.csv",
+      "new_path": "results/learning/phase_3_drl_marl_reproduction_medium.csv",
+      "before_sha256": "b321e8f97e98c65efc8373d5227a7e1de83acca568a5198ae96c4fe3c4df7e9d",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction_medium.csv",
+      "preserve_bytes": true,
+      "after_sha256": "b321e8f97e98c65efc8373d5227a7e1de83acca568a5198ae96c4fe3c4df7e9d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction_medium_beta08.csv",
+      "new_path": "results/learning/phase_3_drl_marl_reproduction_medium_beta08.csv",
+      "before_sha256": "335050355bd54cb1cad9564c4ca27229b0fd4d77809a5c9093da6ff3e7f9d846",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction_medium_beta08.csv",
+      "preserve_bytes": true,
+      "after_sha256": "335050355bd54cb1cad9564c4ca27229b0fd4d77809a5c9093da6ff3e7f9d846"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction_smoke.csv",
+      "new_path": "results/learning/phase_3_drl_marl_reproduction_smoke.csv",
+      "before_sha256": "18499525b55dbc8b1beccdeb2183dfe8617248c62e7d2d8b25c4487edc7d6194",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_reproduction_smoke.csv",
+      "preserve_bytes": true,
+      "after_sha256": "18499525b55dbc8b1beccdeb2183dfe8617248c62e7d2d8b25c4487edc7d6194"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_training_comparison.csv",
+      "new_path": "results/learning/phase_3_drl_marl_training_comparison.csv",
+      "before_sha256": "f7920021d2be00094001bca06a66525aab79137b226fa6b4d1dcca67e4c68041",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_drl_marl_training_comparison.csv",
+      "preserve_bytes": true,
+      "after_sha256": "f7920021d2be00094001bca06a66525aab79137b226fa6b4d1dcca67e4c68041"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_literature_calibrated_summary.csv",
+      "new_path": "results/heuristic_comparison/phase_3_literature_calibrated_summary.csv",
+      "before_sha256": "ca268fab77227f685abd459aea3e52d2a016d34b930de0a496e8f9e0a8f5499e",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_literature_calibrated_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "ca268fab77227f685abd459aea3e52d2a016d34b930de0a496e8f9e0a8f5499e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_single_slot_comparison.csv",
+      "new_path": "results/heuristic_comparison/phase_3_single_slot_comparison.csv",
+      "before_sha256": "f18b99964aa809a7f03dfc779cba4160c95dea458688e0faed71644e70d95fe5",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_single_slot_comparison.csv",
+      "preserve_bytes": true,
+      "after_sha256": "f18b99964aa809a7f03dfc779cba4160c95dea458688e0faed71644e70d95fe5"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_smoke_comparison.csv",
+      "new_path": "results/heuristic_comparison/phase_3_smoke_comparison.csv",
+      "before_sha256": "7c49eb6a0d78c634fecb48ca03a587684b27ee1ef9b75fe6cc97d8b29d120428",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_smoke_comparison.csv",
+      "preserve_bytes": true,
+      "after_sha256": "7c49eb6a0d78c634fecb48ca03a587684b27ee1ef9b75fe6cc97d8b29d120428"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_3_summary.csv",
+      "new_path": "results/heuristic_comparison/phase_3_summary.csv",
+      "before_sha256": "05febc7a0f46eae20327f466466edbf58a8544186cc8a9cb34022114c6558073",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_3_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "05febc7a0f46eae20327f466466edbf58a8544186cc8a9cb34022114c6558073"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_4_cross_time_online_matching.csv",
+      "new_path": "results/cross_time/phase_4_cross_time_online_matching.csv",
+      "before_sha256": "70d29eb88137a4fded4520151eb9538f23762da566463a4e4f8d8e3ae96a4b0a",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_4_cross_time_online_matching.csv",
+      "preserve_bytes": true,
+      "after_sha256": "70d29eb88137a4fded4520151eb9538f23762da566463a4e4f8d8e3ae96a4b0a"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/phase_4_cross_time_online_matching_summary.csv",
+      "new_path": "results/cross_time/phase_4_cross_time_online_matching_summary.csv",
+      "before_sha256": "ba7b51a5d33ab7e99ef3eb1ccd14f3d65b32b1ee0671c085fbb118f0612ad992",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/phase_4_cross_time_online_matching_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "ba7b51a5d33ab7e99ef3eb1ccd14f3d65b32b1ee0671c085fbb118f0612ad992"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_large_scale_results.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_1_large_scale_results.csv",
+      "before_sha256": "502b3a4ee27551688cf68028cd3aa106c75632ad391cc54e81c48caa89f13269",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_large_scale_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "502b3a4ee27551688cf68028cd3aa106c75632ad391cc54e81c48caa89f13269"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_large_scale_summary.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_1_large_scale_summary.csv",
+      "before_sha256": "3f95bcc22bc4c1ad932ccd355563c6d5499cf74d20609cfc83a70e958db35602",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_large_scale_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "3f95bcc22bc4c1ad932ccd355563c6d5499cf74d20609cfc83a70e958db35602"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_single_slot_results.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_1_single_slot_results.csv",
+      "before_sha256": "91ac779bd5d041fe9e1aab79cd700d2ed5b0f7bb79d59aa8cab5c794631ccc9b",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_single_slot_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "91ac779bd5d041fe9e1aab79cd700d2ed5b0f7bb79d59aa8cab5c794631ccc9b"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_summary.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_1_summary.csv",
+      "before_sha256": "95f394fe6742e37f675420926498661534e36a3b3fd5b324323f17f708d9d839",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_1_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "95f394fe6742e37f675420926498661534e36a3b3fd5b324323f17f708d9d839"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_3_literature_calibrated_summary.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_3_literature_calibrated_summary.csv",
+      "before_sha256": "a4dd71b162798f681d6d9bccbf962e7100b2303e6d01b38dac60ad3483020d0d",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_3_literature_calibrated_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "a4dd71b162798f681d6d9bccbf962e7100b2303e6d01b38dac60ad3483020d0d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_3_single_slot_comparison.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_3_single_slot_comparison.csv",
+      "before_sha256": "f4d7c89c1e1aad482a204b11d059f1e6c7eb30a2fd76b0889131fabbaf1f1b93",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_3_single_slot_comparison.csv",
+      "preserve_bytes": true,
+      "after_sha256": "f4d7c89c1e1aad482a204b11d059f1e6c7eb30a2fd76b0889131fabbaf1f1b93"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_3_summary.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_3_summary.csv",
+      "before_sha256": "15e8baaea6957dd8aea4df6093c828cee056a925a2ae256cbd16bc1abcd5b7e8",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_3_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "15e8baaea6957dd8aea4df6093c828cee056a925a2ae256cbd16bc1abcd5b7e8"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_4_cross_time_online_matching.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_4_cross_time_online_matching.csv",
+      "before_sha256": "74b04bb15767563cdc9fe08d0e35712adf0814bb6b40d0d0e5807bc19df72604",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_4_cross_time_online_matching.csv",
+      "preserve_bytes": true,
+      "after_sha256": "74b04bb15767563cdc9fe08d0e35712adf0814bb6b40d0d0e5807bc19df72604"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_4_cross_time_online_matching_summary.csv",
+      "new_path": "results/archive/power_unit_correction_before/phase_4_cross_time_online_matching_summary.csv",
+      "before_sha256": "492c8abf3cd8e873d9555e456733be6c376a3169b21ef5d9ff60667b4dae3f9c",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/power_unit_correction_before/phase_4_cross_time_online_matching_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "492c8abf3cd8e873d9555e456733be6c376a3169b21ef5d9ff60667b4dae3f9c"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_medium.csv",
+      "new_path": "results/learning/thinkpad_drl_marl_medium.csv",
+      "before_sha256": "87bdb55690dd9305388b992b3cb1bd5b94114ca7164a5fb3ae87726c6d9dc814",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_medium.csv",
+      "preserve_bytes": true,
+      "after_sha256": "87bdb55690dd9305388b992b3cb1bd5b94114ca7164a5fb3ae87726c6d9dc814"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_medium_training_log.csv",
+      "new_path": "results/learning/thinkpad_drl_marl_medium_training_log.csv",
+      "before_sha256": "89f180cb4e18fcbc34741c8cd46b87155629a7405324be75efb69ca3b38c5ea2",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_medium_training_log.csv",
+      "preserve_bytes": true,
+      "after_sha256": "89f180cb4e18fcbc34741c8cd46b87155629a7405324be75efb69ca3b38c5ea2"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_training_curves.pdf",
+      "new_path": "results/learning/thinkpad_drl_marl_training_curves.pdf",
+      "before_sha256": "b057c93d51aff353cfc90f126707faeac2507f62443bbc38cce61ca0a917fd17",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_training_curves.pdf",
+      "preserve_bytes": true,
+      "after_sha256": "b057c93d51aff353cfc90f126707faeac2507f62443bbc38cce61ca0a917fd17"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_training_curves.png",
+      "new_path": "results/learning/thinkpad_drl_marl_training_curves.png",
+      "before_sha256": "8c4d6b14c211d2914ff99b231b7c91af3fa2ddf6f14a439068c395d3ac341008",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/results/thinkpad_drl_marl_training_curves.png",
+      "preserve_bytes": true,
+      "after_sha256": "8c4d6b14c211d2914ff99b231b7c91af3fa2ddf6f14a439068c395d3ac341008"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/single_slot_matching.py",
+      "new_path": "src/beam_hopping/matching/single_slot.py",
+      "before_sha256": "b1b46341e1c197f44c304a748031204d594469f733dfbb1e87897b2f5eabb7fc",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/single_slot_matching.py",
+      "preserve_bytes": false,
+      "after_sha256": "b1b46341e1c197f44c304a748031204d594469f733dfbb1e87897b2f5eabb7fc"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/DEFICIT_GUIDE.md",
+      "new_path": "docs/deficit.md",
+      "before_sha256": "6790f8d794aea311fbebd7a9ff36c72157e6eed7366cf554a5b32cee7b8b2a81",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/DEFICIT_GUIDE.md",
+      "preserve_bytes": false,
+      "after_sha256": "ff4db34e27d0e5a8d8fd9dd1077e9b95730277fefc0eff502194b4cf51dd55f6"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/PDF_STRATEGY_MAP.md",
+      "new_path": "docs/strategies.md",
+      "before_sha256": "d7c3521143464dd9783e4c2170877672481e011c66803d2ff349cdc465a48dea",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/PDF_STRATEGY_MAP.md",
+      "preserve_bytes": false,
+      "after_sha256": "244a3559b8640d07b9aa63d9c43162f891a397eaee9ec7d3284e1a0073d8601f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/README.md",
+      "new_path": "docs/experiments.md",
+      "before_sha256": "e726e1b2373f073afacb78bd765f4c622d9a3c0eda6ba0f2a01dfced1ecef65b",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/README.md",
+      "preserve_bytes": false,
+      "after_sha256": "67d4c75c9c30b673c9d23a84bc01304ec3ff55ffb2db019294eb3a44e97d4263"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/SOURCE_PROVENANCE.md",
+      "new_path": "docs/provenance.md",
+      "before_sha256": "fcf660dd0866398c4607a7fdfa52c3650f6e7e1900cb2edceabbd9b9b7d88286",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/SOURCE_PROVENANCE.md",
+      "preserve_bytes": false,
+      "after_sha256": "a258a94650469fef47e2da26cd277ac8947960ca0f2b4f830a698aad6e94680f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/__init__.py",
+      "new_path": "src/synthetic_traffic_validation/__init__.py",
+      "before_sha256": "7b5676676d4d94a7f1331e5c0ecd385a6018e14c2e8ea85adf471de0fb5c6c8b",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/__init__.py",
+      "preserve_bytes": true,
+      "after_sha256": "7b5676676d4d94a7f1331e5c0ecd385a6018e14c2e8ea85adf471de0fb5c6c8b"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/allocation.py",
+      "new_path": "src/synthetic_traffic_validation/allocation.py",
+      "before_sha256": "444921e65ccfa582118f6434afed566f3c71206d6473463d618e2d1372092b00",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/allocation.py",
+      "preserve_bytes": true,
+      "after_sha256": "444921e65ccfa582118f6434afed566f3c71206d6473463d618e2d1372092b00"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/benchmarks.py",
+      "new_path": "src/synthetic_traffic_validation/benchmarks.py",
+      "before_sha256": "e0346fae62844f5ada45dc4b87d44faa2e46ddf31fa4e35a20ba5d16cc6f0aab",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/benchmarks.py",
+      "preserve_bytes": true,
+      "after_sha256": "e0346fae62844f5ada45dc4b87d44faa2e46ddf31fa4e35a20ba5d16cc6f0aab"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/cli.py",
+      "new_path": "src/synthetic_traffic_validation/cli.py",
+      "before_sha256": "26a28f3ab3ca755203f1c5e81e3e5dcdfbe088e74c0cddbfac6a0993a2d28623",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/cli.py",
+      "preserve_bytes": true,
+      "after_sha256": "26a28f3ab3ca755203f1c5e81e3e5dcdfbe088e74c0cddbfac6a0993a2d28623"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/deficit_demo.py",
+      "new_path": "src/synthetic_traffic_validation/deficit_demo.py",
+      "before_sha256": "b846bc62ed41408279f797e927b4b02a6ccf0dca768040cbd88b2be6c721e5d7",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/deficit_demo.py",
+      "preserve_bytes": true,
+      "after_sha256": "b846bc62ed41408279f797e927b4b02a6ccf0dca768040cbd88b2be6c721e5d7"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/deficit_matching.py",
+      "new_path": "src/synthetic_traffic_validation/deficit_matching.py",
+      "before_sha256": "44955c5bda5423ec54ce1c046e77e3ee91028ae5ca6b13ac38da395c03f78acb",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/deficit_matching.py",
+      "preserve_bytes": true,
+      "after_sha256": "44955c5bda5423ec54ce1c046e77e3ee91028ae5ca6b13ac38da395c03f78acb"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/experiments.py",
+      "new_path": "src/synthetic_traffic_validation/experiments.py",
+      "before_sha256": "fe1a8e937a720746dfe4ef1db39fcaf859160053d8e95f09aad798800955022e",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/experiments.py",
+      "preserve_bytes": true,
+      "after_sha256": "fe1a8e937a720746dfe4ef1db39fcaf859160053d8e95f09aad798800955022e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/forecast.py",
+      "new_path": "src/synthetic_traffic_validation/forecast.py",
+      "before_sha256": "55ecb2fe95a4f4578502fe9cc6f8d27ddb008e74ff4dc1c3d155be3ced04521d",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/forecast.py",
+      "preserve_bytes": true,
+      "after_sha256": "55ecb2fe95a4f4578502fe9cc6f8d27ddb008e74ff4dc1c3d155be3ced04521d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/operational.py",
+      "new_path": "src/synthetic_traffic_validation/operational.py",
+      "before_sha256": "85147cd51b8cd6d1585ba04e242dd4ab8e5fbf2f3ac2c305b0ab67b225bbab82",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/operational.py",
+      "preserve_bytes": true,
+      "after_sha256": "85147cd51b8cd6d1585ba04e242dd4ab8e5fbf2f3ac2c305b0ab67b225bbab82"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/provenance.py",
+      "new_path": "src/synthetic_traffic_validation/provenance.py",
+      "before_sha256": "8f1f5fc93c1e331552cf3fd5078e87a6f3e1e7e85ab12bc4701c1b44d065242b",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/provenance.py",
+      "preserve_bytes": true,
+      "after_sha256": "8f1f5fc93c1e331552cf3fd5078e87a6f3e1e7e85ab12bc4701c1b44d065242b"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json",
+      "before_sha256": "2736f16f2be9146265f381c6d6e8537e6cf8d7f186b3c501493aec222e6cd6f5",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/archive_manifest.json",
+      "preserve_bytes": true,
+      "after_sha256": "2736f16f2be9146265f381c6d6e8537e6cf8d7f186b3c501493aec222e6cd6f5"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json",
+      "before_sha256": "b40c86c4848addc7396e1f1dd482ab5eee5a7129981d40c82b001b73d65c0c17",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/baseline_a1.6_parameters.json",
+      "preserve_bytes": true,
+      "after_sha256": "b40c86c4848addc7396e1f1dd482ab5eee5a7129981d40c82b001b73d65c0c17"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv",
+      "before_sha256": "480c334af26dd34a0b3432dff2bae3c20a43370e297dcae39c4c65ceec9b51b0",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/block_interval_sensitivity.csv",
+      "preserve_bytes": true,
+      "after_sha256": "480c334af26dd34a0b3432dff2bae3c20a43370e297dcae39c4c65ceec9b51b0"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json",
+      "before_sha256": "eb80c4b6fd1788d699d7442603ede42b0b2b4d4ae419e1818e043fc25a16cc0e",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/checkpoint.json",
+      "preserve_bytes": true,
+      "after_sha256": "eb80c4b6fd1788d699d7442603ede42b0b2b4d4ae419e1818e043fc25a16cc0e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/environment.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/environment.json",
+      "before_sha256": "14d02ff68bb6369a863d4ee9eb3e20e4d6ac6553e1f3ca3e346b7a4896a8fcd8",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/environment.json",
+      "preserve_bytes": true,
+      "after_sha256": "14d02ff68bb6369a863d4ee9eb3e20e4d6ac6553e1f3ca3e346b7a4896a8fcd8"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv",
+      "before_sha256": "438734a190932a8272d98f07ef2c310c8e844092a26a4d7a2ce8cea11e4342b3",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/figure_inventory.csv",
+      "preserve_bytes": true,
+      "after_sha256": "438734a190932a8272d98f07ef2c310c8e844092a26a4d7a2ce8cea11e4342b3"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv",
+      "before_sha256": "b0b5a77d5d846c4ae67f67028f2a57689fe2b811ec9946f244bb709e6e4889d7",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/forecast_metrics.csv",
+      "preserve_bytes": true,
+      "after_sha256": "b0b5a77d5d846c4ae67f67028f2a57689fe2b811ec9946f244bb709e6e4889d7"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json",
+      "before_sha256": "3c0edc0051cb810fa96c681f75827b8de062d807a29de2092abce9c9239b208f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/formal_budget.json",
+      "preserve_bytes": true,
+      "after_sha256": "3c0edc0051cb810fa96c681f75827b8de062d807a29de2092abce9c9239b208f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json",
+      "before_sha256": "cdbb4f19fbe8de9ed19a9136975d6da204300f16a354cd95bb70b6982a8cd4d8",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/formal_complete.json",
+      "preserve_bytes": true,
+      "after_sha256": "cdbb4f19fbe8de9ed19a9136975d6da204300f16a354cd95bb70b6982a8cd4d8"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json",
+      "before_sha256": "2656070e892a4be39277d1e6a4438c8215ad1dbd09a8fbafc430c19eb2d974e1",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/frozen_code.json",
+      "preserve_bytes": true,
+      "after_sha256": "2656070e892a4be39277d1e6a4438c8215ad1dbd09a8fbafc430c19eb2d974e1"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json",
+      "before_sha256": "8244eecb6599c0e1f1922c8e972b1eef69dbc2ba9b4234c48263aea91c9d6630",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/hotspot_a1.6_parameters.json",
+      "preserve_bytes": true,
+      "after_sha256": "8244eecb6599c0e1f1922c8e972b1eef69dbc2ba9b4234c48263aea91c9d6630"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv",
+      "before_sha256": "2305254671ba8369092b3ad248422201efc2a275ca11786f67986880cab8edaa",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/model_selection.csv",
+      "preserve_bytes": true,
+      "after_sha256": "2305254671ba8369092b3ad248422201efc2a275ca11786f67986880cab8edaa"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv",
+      "before_sha256": "16efe0cbdda851158174abb3faeb47c173d7bf60650ff460b939f79657e93111",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/pilot_equal.csv",
+      "preserve_bytes": true,
+      "after_sha256": "16efe0cbdda851158174abb3faeb47c173d7bf60650ff460b939f79657e93111"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv",
+      "before_sha256": "e13e38dd1127b796b9cd249151181fd94c4459f3a5f7c51fbf0c140d01e0da61",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/postrun_tests.csv",
+      "preserve_bytes": true,
+      "after_sha256": "e13e38dd1127b796b9cd249151181fd94c4459f3a5f7c51fbf0c140d01e0da61"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/protocol.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/protocol.json",
+      "before_sha256": "a7a42705bf6b7de106c5081bbee2b366f98d7ddfa35b882d023c694c519dced9",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/protocol.json",
+      "preserve_bytes": true,
+      "after_sha256": "a7a42705bf6b7de106c5081bbee2b366f98d7ddfa35b882d023c694c519dced9"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json",
+      "before_sha256": "4f6e36d58a51174fb5181a8a651223de049973ba0ee4b58a289e7106ce14ea46",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/resources/formal_B_C.json",
+      "preserve_bytes": true,
+      "after_sha256": "4f6e36d58a51174fb5181a8a651223de049973ba0ee4b58a289e7106ce14ea46"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv",
+      "before_sha256": "22bed473bf941699ff40bc3a93da9a131702edb16bc4e966096d61d8061edbe9",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/solver_status_summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "22bed473bf941699ff40bc3a93da9a131702edb16bc4e966096d61d8061edbe9"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv",
+      "before_sha256": "59925463c8bebbc12ea08676824fb58089f9bf3ae348fcdfa25970e8504b1320",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/source_audit.csv",
+      "preserve_bytes": true,
+      "after_sha256": "59925463c8bebbc12ea08676824fb58089f9bf3ae348fcdfa25970e8504b1320"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv",
+      "before_sha256": "c192d8007f106634ba43f4fc8b35972534c59511c478730fdabea5fed71ea4cb",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/static_attempts.csv",
+      "preserve_bytes": true,
+      "after_sha256": "c192d8007f106634ba43f4fc8b35972534c59511c478730fdabea5fed71ea4cb"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv",
+      "before_sha256": "6d94f6ddac2aca36f676422f546514645a72bccb2fa5fea9ec5c47f2b1b67413",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/static_results.csv",
+      "preserve_bytes": true,
+      "after_sha256": "6d94f6ddac2aca36f676422f546514645a72bccb2fa5fea9ec5c47f2b1b67413"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/summary.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/summary.csv",
+      "before_sha256": "7f382779c8de779a1afdfaa7d5ad90f28b9b2a11dad82ec5c632ba68ab36692b",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/summary.csv",
+      "preserve_bytes": true,
+      "after_sha256": "7f382779c8de779a1afdfaa7d5ad90f28b9b2a11dad82ec5c632ba68ab36692b"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/tests.csv",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/tests.csv",
+      "before_sha256": "07b0f7a61f54679457675237d564253cd958518f54945da26c2e13faafc2faac",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/tests.csv",
+      "preserve_bytes": true,
+      "after_sha256": "07b0f7a61f54679457675237d564253cd958518f54945da26c2e13faafc2faac"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/verification.json",
+      "new_path": "src/synthetic_traffic_validation/reference_results/revision_20261026/verification.json",
+      "before_sha256": "95a4781075b0fa386a8cbcefca6cc5d113f443695190e7e5ae32d8fcff6ade44",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reference_results/revision_20261026/verification.json",
+      "preserve_bytes": true,
+      "after_sha256": "95a4781075b0fa386a8cbcefca6cc5d113f443695190e7e5ae32d8fcff6ade44"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reporting.py",
+      "new_path": "src/synthetic_traffic_validation/reporting.py",
+      "before_sha256": "3c799ba2892eb1292e6ce3dc1fc9ed4f5d611d414bfcb3b43687f2704f33d3e5",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/reporting.py",
+      "preserve_bytes": true,
+      "after_sha256": "3c799ba2892eb1292e6ce3dc1fc9ed4f5d611d414bfcb3b43687f2704f33d3e5"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/resources.py",
+      "new_path": "src/synthetic_traffic_validation/resources.py",
+      "before_sha256": "e816775b2a994e327a73ea26804c833ce9922a809b41f5fc1f21cc2cb9638dd8",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/resources.py",
+      "preserve_bytes": true,
+      "after_sha256": "e816775b2a994e327a73ea26804c833ce9922a809b41f5fc1f21cc2cb9638dd8"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/__init__.py",
+      "new_path": "src/synthetic_traffic_validation/revision_code/__init__.py",
+      "before_sha256": "8f11a20e2e0bb90c9f4ac7ff7ee63123eeeae5d8dcb287a821b83ebcb9f2b30e",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/__init__.py",
+      "preserve_bytes": true,
+      "after_sha256": "8f11a20e2e0bb90c9f4ac7ff7ee63123eeeae5d8dcb287a821b83ebcb9f2b30e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/revision.py",
+      "new_path": "src/synthetic_traffic_validation/revision_code/revision.py",
+      "before_sha256": "93d0eae742f217027b21756ae89cc3e2eb7388758ae8163911198d356ce88a14",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/revision.py",
+      "preserve_bytes": true,
+      "after_sha256": "93d0eae742f217027b21756ae89cc3e2eb7388758ae8163911198d356ce88a14"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/summarize.py",
+      "new_path": "src/synthetic_traffic_validation/revision_code/summarize.py",
+      "before_sha256": "a84d6956114099b2ebba52f3f41fcf1d9a9e79d2110597338ea584c33a9ea8f6",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/summarize.py",
+      "preserve_bytes": true,
+      "after_sha256": "a84d6956114099b2ebba52f3f41fcf1d9a9e79d2110597338ea584c33a9ea8f6"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/test_revision.py",
+      "new_path": "src/synthetic_traffic_validation/revision_code/test_revision.py",
+      "before_sha256": "bb31fc6d2bbe9d8e142f66c463252ab01d3b69357ff110d362b7f8aa016d9c53",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/test_revision.py",
+      "preserve_bytes": true,
+      "after_sha256": "bb31fc6d2bbe9d8e142f66c463252ab01d3b69357ff110d362b7f8aa016d9c53"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/verify_results.py",
+      "new_path": "src/synthetic_traffic_validation/revision_code/verify_results.py",
+      "before_sha256": "b5eadaafcdb0897fafafbea3bf9ed92ec6a9fab542fc7f876c94e72700a10c36",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/revision_code/verify_results.py",
+      "preserve_bytes": true,
+      "after_sha256": "b5eadaafcdb0897fafafbea3bf9ed92ec6a9fab542fc7f876c94e72700a10c36"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/source_port_changes.patch",
+      "new_path": "src/synthetic_traffic_validation/source_port_changes.patch",
+      "before_sha256": "69a039666ac73ecc21d7609328957f27f9246c22033e9723f6a4e477b60c82f0",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/source_port_changes.patch",
+      "preserve_bytes": true,
+      "after_sha256": "69a039666ac73ecc21d7609328957f27f9246c22033e9723f6a4e477b60c82f0"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/source_provenance.json",
+      "new_path": "src/synthetic_traffic_validation/source_provenance.json",
+      "before_sha256": "968f08d49609d1dea334c2e0414eb58ff868e2da75eb6732f7fdf30246102864",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/source_provenance.json",
+      "preserve_bytes": true,
+      "after_sha256": "968f08d49609d1dea334c2e0414eb58ff868e2da75eb6732f7fdf30246102864"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_core.py",
+      "new_path": "src/synthetic_traffic_validation/tests/test_core.py",
+      "before_sha256": "fdba9298c1e9d0cb29afe1a94688e5dd70eacbca8aa42ef497008c758f531a49",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_core.py",
+      "preserve_bytes": true,
+      "after_sha256": "fdba9298c1e9d0cb29afe1a94688e5dd70eacbca8aa42ef497008c758f531a49"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_deficit_demo.py",
+      "new_path": "src/synthetic_traffic_validation/tests/test_deficit_demo.py",
+      "before_sha256": "b018475ae4b2094e511ee06cb499a05eb78c41987e1a943dd8f8810d856df8f9",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_deficit_demo.py",
+      "preserve_bytes": true,
+      "after_sha256": "b018475ae4b2094e511ee06cb499a05eb78c41987e1a943dd8f8810d856df8f9"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_deficit_matching.py",
+      "new_path": "src/synthetic_traffic_validation/tests/test_deficit_matching.py",
+      "before_sha256": "c4b89f3aa38494e078a5a4e45a74181c4be636a14bdeb1c0caca8230892fdf3f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_deficit_matching.py",
+      "preserve_bytes": true,
+      "after_sha256": "c4b89f3aa38494e078a5a4e45a74181c4be636a14bdeb1c0caca8230892fdf3f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_evidence.py",
+      "new_path": "src/synthetic_traffic_validation/tests/test_evidence.py",
+      "before_sha256": "2a2474ee11be5cbee7de6966fa023527c589cdbd4dcbb140f3682aa36ef891e0",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/tests/test_evidence.py",
+      "preserve_bytes": true,
+      "after_sha256": "2a2474ee11be5cbee7de6966fa023527c589cdbd4dcbb140f3682aa36ef891e0"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md",
+      "new_path": "src/synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md",
+      "before_sha256": "e96cbf78c8c0bbad1caa5ef0a01714e90b1d10c59e9e1a62aef289dfea2ed5bf",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/theory/2026-11-10_deficit_weighted_matching_theorem_original.md",
+      "preserve_bytes": true,
+      "after_sha256": "e96cbf78c8c0bbad1caa5ef0a01714e90b1d10c59e9e1a62aef289dfea2ed5bf"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md",
+      "new_path": "src/synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md",
+      "before_sha256": "1375113da855580c0b76b085e6d60e516659b5831f40f2f03e4d7b86c5849cad",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/theory/2026-11-12_deficit_error_tolerance_progress.md",
+      "preserve_bytes": true,
+      "after_sha256": "1375113da855580c0b76b085e6d60e516659b5831f40f2f03e4d7b86c5849cad"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/traffic.py",
+      "new_path": "src/synthetic_traffic_validation/traffic.py",
+      "before_sha256": "6e0715db6b62b0a59994b7798824c5e5bf7cf5ac80a3e15f7dc14efcb5528a4e",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/traffic.py",
+      "preserve_bytes": true,
+      "after_sha256": "6e0715db6b62b0a59994b7798824c5e5bf7cf5ac80a3e15f7dc14efcb5528a4e"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/archive_check.json",
+      "new_path": "src/synthetic_traffic_validation/validation/archive_check.json",
+      "before_sha256": "43f2b560c3f6fe66963d4bd8e16efb9ca971a045f534918303f5b3533250d73f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/archive_check.json",
+      "preserve_bytes": true,
+      "after_sha256": "43f2b560c3f6fe66963d4bd8e16efb9ca971a045f534918303f5b3533250d73f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/deficit_existing_traffic.json",
+      "new_path": "src/synthetic_traffic_validation/validation/deficit_existing_traffic.json",
+      "before_sha256": "98824ea5718fb94592854c45505168fc326f6d65aa159b5ba6f403000c35326f",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/deficit_existing_traffic.json",
+      "preserve_bytes": true,
+      "after_sha256": "98824ea5718fb94592854c45505168fc326f6d65aa159b5ba6f403000c35326f"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/deficit_toy.json",
+      "new_path": "src/synthetic_traffic_validation/validation/deficit_toy.json",
+      "before_sha256": "109d27de7f15c4e0d6bbb806b4a4ad5183a49f87a4ffc4d9ffdadba23787e323",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/deficit_toy.json",
+      "preserve_bytes": true,
+      "after_sha256": "109d27de7f15c4e0d6bbb806b4a4ad5183a49f87a4ffc4d9ffdadba23787e323"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/port_parity.json",
+      "new_path": "src/synthetic_traffic_validation/validation/port_parity.json",
+      "before_sha256": "e7fc666f75db15b1c18193348fba2a41de53d58c8884283f4acff8df810ca6f6",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/port_parity.json",
+      "preserve_bytes": true,
+      "after_sha256": "e7fc666f75db15b1c18193348fba2a41de53d58c8884283f4acff8df810ca6f6"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/pytest.txt",
+      "new_path": "src/synthetic_traffic_validation/validation/pytest.txt",
+      "before_sha256": "faab5e3d188c61d2c52a8faca9c616cccb04d00eb8b97a25ae3f99e811e1f5ad",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/pytest.txt",
+      "preserve_bytes": false,
+      "after_sha256": "faab5e3d188c61d2c52a8faca9c616cccb04d00eb8b97a25ae3f99e811e1f5ad"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/validation_record.json",
+      "new_path": "src/synthetic_traffic_validation/validation/validation_record.json",
+      "before_sha256": "ff66aea964437e4ec434708b54c7de841e95643f072de578e0bb070c0a6764e3",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/validation_record.json",
+      "preserve_bytes": true,
+      "after_sha256": "ff66aea964437e4ec434708b54c7de841e95643f072de578e0bb070c0a6764e3"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/wheel_build.txt",
+      "new_path": "src/synthetic_traffic_validation/validation/wheel_build.txt",
+      "before_sha256": "d21f97ede5ab1be726d1795b81265f00e7c2ac32d02ff3f54d27820bcb4f5782",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/wheel_build.txt",
+      "preserve_bytes": false,
+      "after_sha256": "d21f97ede5ab1be726d1795b81265f00e7c2ac32d02ff3f54d27820bcb4f5782"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/wheel_check.json",
+      "new_path": "src/synthetic_traffic_validation/validation/wheel_check.json",
+      "before_sha256": "f4aa761d110edda7f2247c2c48013f4d35ab2d0731936117a7bd79e19baa7d2d",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/validation/wheel_check.json",
+      "preserve_bytes": true,
+      "after_sha256": "f4aa761d110edda7f2247c2c48013f4d35ab2d0731936117a7bd79e19baa7d2d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/verify_evidence.py",
+      "new_path": "src/synthetic_traffic_validation/verify_evidence.py",
+      "before_sha256": "aaea93ab08f7a5bd6b1fde011948663f53e1c166482f4210607d10af8a17a7fb",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/verify_evidence.py",
+      "preserve_bytes": true,
+      "after_sha256": "aaea93ab08f7a5bd6b1fde011948663f53e1c166482f4210607d10af8a17a7fb"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/verify_port.py",
+      "new_path": "src/synthetic_traffic_validation/verify_port.py",
+      "before_sha256": "d2c4c04fb3d660af27863c53e1ce4a99f360c47898fddf54cfbf948a42375d04",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/synthetic_traffic_validation/verify_port.py",
+      "preserve_bytes": true,
+      "after_sha256": "d2c4c04fb3d660af27863c53e1ce4a99f360c47898fddf54cfbf948a42375d04"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/test_cross_time_online_matching.py",
+      "new_path": "tests/test_cross_time_online_matching.py",
+      "before_sha256": "4518a88a42f364146085d68a2e3a58e4bf99c21bb7bb76de57794f75119c7684",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/test_cross_time_online_matching.py",
+      "preserve_bytes": false,
+      "after_sha256": "c6f7f5b54977e917ae523bc9b2b7cd4259ca37bc5475588d0ec88709bda0fb5d"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/test_drl_marl_reproduction.py",
+      "new_path": "tests/test_drl_marl_reproduction.py",
+      "before_sha256": "551322d1d8ff9c381c2b0aec130d0c453eec2fc15695d76b80b32dd10eef6605",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/test_drl_marl_reproduction.py",
+      "preserve_bytes": false,
+      "after_sha256": "f64da50134e6253621dbb8649b99d5efa5a18a7af26959c3d61e35192469a98b"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/test_phase3_benchmarks.py",
+      "new_path": "tests/test_phase3_benchmarks.py",
+      "before_sha256": "5c9bad1435dab54c39d2d885b15a61481a274dbe9e4befb7465a3da238886c37",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/test_phase3_benchmarks.py",
+      "preserve_bytes": false,
+      "after_sha256": "1900bbbcfbedb81ed96e1446e90473d9f452b37e5cd1fdbc92ca0152106f1cd4"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/code/test_single_slot_matching.py",
+      "new_path": "tests/test_single_slot_matching.py",
+      "before_sha256": "d9e3d7af0d65672fe935487602bcb1e2aef98b3cb4b0152443ee4b7a230b3901",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/code/test_single_slot_matching.py",
+      "preserve_bytes": false,
+      "after_sha256": "2c8381c53bc9931d266d98d20a5f876d91b1848f78eceb0825ebc5c0fc4da5c0"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/PROJECT_JOURNAL.md",
+      "new_path": "docs/PROJECT_JOURNAL.md",
+      "before_sha256": "b77f0f272f3cd4b60994261195911b465a70d0c9dcc13633d3c1d875091acf3c",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/PROJECT_JOURNAL.md",
+      "preserve_bytes": false,
+      "after_sha256": "1cb718103ee19c9f339aff0fd587fdca8f2f33b7262c211fb11e74b6670a1d9a"
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/beam_hopping_project_status.md",
+      "new_path": null,
+      "before_sha256": "d89331429098922a2917f087211fd5478a85522b88f998fbd1fc4956676bde08",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/beam_hopping_project_status.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_1_single_slot_matching_report.md",
+      "new_path": null,
+      "before_sha256": "75372384e85f817f4d0e117c93b4dca5e0b4cc2b1021737042aa6740a07267e9",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_1_single_slot_matching_report.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_1_update_log.md",
+      "new_path": null,
+      "before_sha256": "f7e9ff7b27b51d158461cb983f99ffddfafd3749904230fac02a766a1e8b23a2",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_1_update_log.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_2_literature_screening_report.md",
+      "new_path": null,
+      "before_sha256": "128a5e69d8f3857247c38e8bbb4aeddc3bf0621720283a941a03ab638fdf20c4",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_2_literature_screening_report.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_2_update_log.md",
+      "new_path": null,
+      "before_sha256": "1c484f5de89efb7e59a18f4023eeeec4f5642992aab96b9b5c01a2b474b29011",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_2_update_log.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_3_single_slot_comparison_report.md",
+      "new_path": null,
+      "before_sha256": "805e279f99dcb772c875591bbd31672fc955f8903ae8f635772cc3ddbd0d0214",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_3_single_slot_comparison_report.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_3_update_log.md",
+      "new_path": null,
+      "before_sha256": "184dccd6f166f404fb2826d38238d690b936eef01ce98e6679a63c05bffd9af8",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_3_update_log.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_4_cross_time_online_matching_report.md",
+      "new_path": null,
+      "before_sha256": "ac838c6f2d7f0444c8c0ebf9ed12cc96f02c2ba382db4f181028ac071e76ce85",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_4_cross_time_online_matching_report.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    },
+    {
+      "old_path": "beam_hopping_experiment_artifacts/reports/phase_4_update_log.md",
+      "new_path": null,
+      "before_sha256": "6d71fe6363c6ceeadc55dccc45f404a9d4e5c0bc5f59d9d2f03d9b1e11faf1ab",
+      "historical_url": "https://github.com/Cooperyichen/beam-hopping-matching-experiments/blob/26e57bb247b661e1c581b90c654f1869fe4ac453/beam_hopping_experiment_artifacts/reports/phase_4_update_log.md",
+      "preserve_bytes": false,
+      "after_sha256": null
+    }
+  ]
+}
