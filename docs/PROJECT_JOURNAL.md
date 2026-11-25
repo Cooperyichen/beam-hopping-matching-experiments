@@ -75,3 +75,9 @@ ThinkPad WSL checks passed 59 tests, an explicit MOSEK small LP, all nine featur
 The first regression run found a missing validation-record link, which was corrected before the successful run. Review also caught a migrated plotting input path and help that could trigger figure generation; both were corrected and tested. Git initially refused removal of this task's staged report moves; only those authorized report copies were removed, with originals preserved in the merged commit. Two existing MOSEK sparse-index copy warnings remain non-failing.
 
 The ThinkPad checkout and temporary installation are isolated from the owner's original Mac working tree and the shared environment. GitHub Actions is still a template, not an executed check. Solver validity on this node does not guarantee another recipient's license. Publication of this layout is recorded below; no new theoretical or statistical guarantee is claimed.
+
+## 2026-11-25 — Layout publication
+
+The verified layout was published as commit `505e6ee49ef93490ab85f7ddc06e8a34b1b55b1d` on `codex/functional-project-layout`. [PR 3](https://github.com/Cooperyichen/beam-hopping-matching-experiments/pull/3) targets `main` and was open, mergeable and free of conflicts at verification. No GitHub status checks were present; that is not a CI pass. PR 2 is already merged, while PR 3 remains separate pending the owner's choice about merging this broader reorganization. The new branch homepage is the shareable collaborator entry until then.
+
+The current journal and path manifest were synchronized back to ThinkPad after publication. The final local and remote checkouts are dedicated task copies; the owner's original Mac working tree remains unchanged. Remaining work is owner review or merge choice, not an unresolved test failure. There is no additional experiment or model change in this publication record.
